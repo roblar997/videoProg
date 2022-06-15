@@ -9,7 +9,10 @@ import java.io.IOException;
 public class videoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+        out.println("<BODY><p>test123</p></BODY>");
+        out.close();
     }
 
     @Override
