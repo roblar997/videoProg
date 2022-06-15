@@ -1,13 +1,25 @@
 package com.example.demo.entities;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Objects;
 
 public class Tidslinje {
     private String user;
-    private Long timestamp;
+    private Integer timestamp;
     private Integer start;
     private Integer end;
     private String text;
+
+    public Tidslinje(String user, Integer timestamp, Integer start, Integer end, String text, Integer like, Integer dislike) {
+        this.user = user;
+        this.timestamp = timestamp;
+        this.start = start;
+        this.end = end;
+        this.text = text;
+        this.like = like;
+        this.dislike = dislike;
+    }
+
     private Integer like;
     private Integer dislike;
 
@@ -20,11 +32,11 @@ public class Tidslinje {
         this.user = user;
     }
 
-    public Long getTimestamp() {
+    public Integer getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(Integer timestamp) {
         this.timestamp = timestamp;
     }
 
