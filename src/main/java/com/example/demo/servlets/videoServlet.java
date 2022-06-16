@@ -25,12 +25,12 @@ public class videoServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        //Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
-        //List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
-        //String json = gson.toJson(tidslinjeListe, typeInfo);
+        response.setContentType("application/json");
+        Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
+        List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
+        String json = gson.toJson(tidslinjeListe, typeInfo);
         PrintWriter out = response.getWriter();
-        out.println("te");
+        out.println(json);
         out.close();
     }
 
