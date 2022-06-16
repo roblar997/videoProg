@@ -131,7 +131,7 @@ var timeLineModule = (function(){
     let timestamp
 
     async function getInitState() {
-        await $.post("/getInitState",(res)=>{
+        await $.post("/videoServlet",{ remoteMethod: "getInitState"},(res)=>{
             this.timestamp = new Date().valueOf();
             this.fenwFeatureTree = new FenwFeatureTree(res.nmbFeatures,res.size)
             this.timestamp = res.timestamp
@@ -146,7 +146,7 @@ var timeLineModule = (function(){
     }
 
     async function sendTimeLine(timeline) {
-        await $.post("/addTimeLine",timeline,(res)=>{
+        await $.post("/videoServlet",{ remoteMethod: "addTimeLine", timeline: timeline},(res)=>{
             this.timestamp = new Date().valueOf();
 
 
@@ -155,7 +155,7 @@ var timeLineModule = (function(){
     async function getChanges() {
 
 
-        await $.post("/getChanges",timestamp, (res)=>{
+        await $.post("/videoServlet",{ remoteMethod: "getChanges", timestamp: timestamp}, (res)=>{
 
             this.timestamp = timestamp;
 

@@ -25,6 +25,20 @@ public class videoServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String remoteMethod = request.getParameter("remoteMethod");
+        if(remoteMethod.equals("getChanges")){
+
+        }
+        else if(remoteMethod.equals("addTimeLine")){
+
+        }
+        else if(remoteMethod.equals("getInitState")){
+
+        }
+        else {
+
+        }
         response.setContentType("application/json");
         Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
         List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
