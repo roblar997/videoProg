@@ -5,6 +5,7 @@ import com.example.demo.entities.Tidslinje;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javax.ejb.EJB;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.List;
-import javax.ejb.EJB;
+
 
 @WebServlet(name = "videoServlet", value = "/videoServlet")
 public class videoServlet extends HttpServlet {
