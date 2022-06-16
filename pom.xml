@@ -50,6 +50,11 @@
             <artifactId>ejb-api</artifactId>
             <version>3.0-alpha-1</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
