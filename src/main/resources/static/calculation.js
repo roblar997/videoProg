@@ -137,7 +137,7 @@ var timeLineModule = (function(){
             //this.timestamp = res.timestamp
 
 
-            for (const [key, value] of Object.entries(res.features)){
+            for (const [key, value] of Object.entries(res.featureList)){
 
                 this.fenwFeatureTree.update(value.timeslot,value.featureNmb,value.val);
             }
