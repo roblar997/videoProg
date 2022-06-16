@@ -140,8 +140,8 @@ var timeLineModule = (function(){
             //    this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
            // }
 
-           for (let key in res.tidslinjer){
-                this.timeLines.push(res.tidslinjer[key])
+            for (const [key, value] of Object.entries(res.tidslinjer)){
+                this.timeLines.push(value)
            }
 
         }).promise();
