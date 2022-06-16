@@ -133,11 +133,13 @@ var timeLineModule = (function(){
     async function getInitPState() {
         await $.post("/videoServlet",{ remoteMethod: "getInitState"},(res)=>{
             //this.timestamp = new Date().valueOf();
-           fenwFeatureTree = new FenwFeatureTree(res.nmbFeatures,res.size)
+            fenwFeatureTree = new FenwFeatureTree(res.initFenwick.nmbFeatures,res.initFenwick.size)
             //this.timestamp = res.timestamp
+
             //for (let key in res.features){
-           //     this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
+            //    this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
            // }
+
            for (let key in res.timelines){
                 this.timeLines.push(res.timelines[key])
            }
