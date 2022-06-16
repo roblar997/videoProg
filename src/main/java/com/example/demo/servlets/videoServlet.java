@@ -1,11 +1,13 @@
 package com.example.demo.servlets;
 
+import com.example.demo.DAO.FeatureDAO;
 import com.example.demo.DAO.InitFenwickDAO;
 import com.example.demo.DAO.TidslinjeDAO;
+import com.example.demo.entities.Feature;
 import com.example.demo.entities.InitFenwick;
 import com.example.demo.entities.Tidslinje;
 
-import com.example.demo.wrapper.InitFenwickTidslinjeWrapper;
+import com.example.demo.wrapper.InitFenwickTidslinjeFeatureWrapper;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +31,9 @@ public class videoServlet extends HttpServlet {
     @EJB
     private InitFenwickDAO initFenwickDAO;
 
+    @EJB
+    private FeatureDAO featureDAO;
+
     private Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,11 +53,13 @@ public class videoServlet extends HttpServlet {
         }
         else if(remoteMethod.equals("getInitState")){
                response.setContentType("application/json");
-               Type typeInfo = new TypeToken<InitFenwickTidslinjeWrapper>() {}.getType();
+               Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
 
                List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
+               List<Feature>   features       = featureDAO.getFeatures();
+
                InitFenwick initFenwick = initFenwickDAO.getFenwick();
-               InitFenwickTidslinjeWrapper wrapped = WrapperService.assembleInitFenwickTidslinjeWrapper(initFenwick,tidslinjeListe);
+            InitFenwickTidslinjeFeatureWrapper wrapped = WrapperService.assembleInitFenwickTidslinjeWrapper(initFenwick,tidslinjeListe,features);
 
                String json = gson.toJson(wrapped, typeInfo);
                out.println(json);

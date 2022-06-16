@@ -136,10 +136,11 @@ var timeLineModule = (function(){
             this.fenwFeatureTree = new FenwFeatureTree(res.initFenwick.nmbFeatures,res.initFenwick.size)
             //this.timestamp = res.timestamp
 
-            //for (let key in res.features){
-            //    this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
-           // }
 
+            for (const [key, value] of Object.entries(res.features)){
+
+                this.fenwFeatureTree.update(value.timeslot,value.featureNmb,value.val);
+            }
             for (const [key, value] of Object.entries(res.tidslinjer)){
 
                 timeLines.push(value)
