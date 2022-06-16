@@ -1,8 +1,12 @@
 package com.example.demo.servlets;
 
+import com.example.demo.DAO.InitFenwickDAO;
 import com.example.demo.DAO.TidslinjeDAO;
+import com.example.demo.entities.InitFenwick;
 import com.example.demo.entities.Tidslinje;
 
+import com.example.demo.wrapper.InitFenwickTidslinjeWrapper;
+import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -22,6 +26,9 @@ public class videoServlet extends HttpServlet {
     @EJB
     private TidslinjeDAO tidslinjeDAO;
 
+    @EJB
+    private InitFenwickDAO initFenwickDAO;
+
     private Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,17 +47,20 @@ public class videoServlet extends HttpServlet {
                 out.println("addTimeLine");
         }
         else if(remoteMethod.equals("getInitState")){
-                out.println("getInitState");
+               response.setContentType("application/json");
+               Type typeInfo = new TypeToken<InitFenwickTidslinjeWrapper>() {}.getType();
+
+               List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
+               InitFenwick initFenwick = initFenwickDAO.getFenwick();
+               InitFenwickTidslinjeWrapper wrapped = WrapperService.assembleInitFenwickTidslinjeWrapper(initFenwick,tidslinjeListe);
+
+               String json = gson.toJson(wrapped, typeInfo);
+               out.println(json);
         }
         else {
                 out.println("elseStatement");
         }
-        //response.setContentType("application/json");
-        //Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
-        // List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
-        // String json = gson.toJson(tidslinjeListe, typeInfo);
-        // PrintWriter out = response.getWriter();
-        // out.println(json);
+
         out.close();
     }
 }
