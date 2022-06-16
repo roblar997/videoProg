@@ -50,7 +50,7 @@
 
                 $("#addTimeline").click((e) => {
                     let timelineToAdd = timeLineModule.extractTidslinje();
-                    timeLineModule.addTimeLine(timelineToAdd);
+                    timeLineModule.sendTimeLine(timelineToAdd);
                     $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
                         " of " + $( "#slider-range" ).slider( "values", 1 ) );
                     $( "#likes" ).val(timeLineModule.countLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
