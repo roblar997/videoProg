@@ -130,56 +130,56 @@ var timeLineModule = (function(){
     let fenwFeatureTree;
     let timestamp
 
-    async function getInitState() {
+    async function getInitPState() {
         await $.post("/videoServlet",{ remoteMethod: "getInitState"},(res)=>{
-            this.timestamp = new Date().valueOf();
-            this.fenwFeatureTree = new FenwFeatureTree(res.nmbFeatures,res.size)
-            this.timestamp = res.timestamp
-            for (let key in res.features){
-                this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
-            }
-            for (let key in res.timelines){
-                this.timeLines.push(res.timelines[key])
-            }
+            //this.timestamp = new Date().valueOf();
+           // this.fenwFeatureTree = new FenwFeatureTree(res.nmbFeatures,res.size)
+            //this.timestamp = res.timestamp
+            //for (let key in res.features){
+           //     this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
+           // }
+           // for (let key in res.timelines){
+            //    this.timeLines.push(res.timelines[key])
+           // }
 
         }).promise();
     }
 
-    async function sendTimeLine(timeline) {
+    async function sendTimePLine(timeline) {
         await $.post("/videoServlet",{ remoteMethod: "addTimeLine", timeline: timeline},(res)=>{
-            this.timestamp = new Date().valueOf();
+           // this.timestamp = new Date().valueOf();
 
 
         }).promise();
     }
-    async function getChanges() {
+    async function getPChanges() {
 
 
         await $.post("/videoServlet",{ remoteMethod: "getChanges", timestamp: timestamp}, (res)=>{
 
-            this.timestamp = timestamp;
+            //this.timestamp = timestamp;
 
-            for (let key in res.features){
-                this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
-            }
+           // for (let key in res.features){
+          //      this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
+           // }
 
-            for (let key in res.timelines){
+           // for (let key in res.timelines){
 
-                if(res.timelines[key].command=="ADD"){
-                        this.timeLines.push(res.timelines[key].postTimeLine)
-                }
+             //   if(res.timelines[key].command=="ADD"){
+             //           this.timeLines.push(res.timelines[key].postTimeLine)
+             //   }
 
-                else if(res.timelines[key].command=="REMOVE"){
-                      let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
-                      this.timeLines.splice(index,1)
-                }
+              //  else if(res.timelines[key].command=="REMOVE"){
+              //        let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
+              //        this.timeLines.splice(index,1)
+              //  }
 
-                else if(res.timelines[key].command=="CHANGE"){
-                      let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
-                      this.timeLines.splice(index,1,timelines[key].postTimeLine)
-                }
+              //  else if(res.timelines[key].command=="CHANGE"){
+                //      let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
+                //      this.timeLines.splice(index,1,timelines[key].postTimeLine)
+               // }
 
-             }
+           //  }
 
         }).promise();
 
@@ -260,10 +260,21 @@ var timeLineModule = (function(){
         getTimeLine: function(commentId){
             getPTimeLine(commentId)
         } ,
+        getInitState : function (){
+            getInitPState().then();
+        } ,
+        sendTimeLine : function (){
+            sendTimePLine().then();
+        } ,
+        getChanges : function (){
+            getPChanges().then();
+        },
 
         addTimeLine: function(timeline){
             addPTimeLine(timeline)
         },
+
+
         extractFeatureAndUpdate: function(){
             let start=$( "#slider-range" ).slider( "values", 0 )
             let end=$( "#slider-range" ).slider( "values", 1 )

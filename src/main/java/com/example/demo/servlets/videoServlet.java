@@ -26,30 +26,31 @@ public class videoServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String remoteMethod = request.getParameter("remoteMethod");
-        if(remoteMethod.equals("getChanges")){
-
-        }
-        else if(remoteMethod.equals("addTimeLine")){
-
-        }
-        else if(remoteMethod.equals("getInitState")){
-
-        }
-        else {
-
-        }
-        response.setContentType("application/json");
-        Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
-        List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
-        String json = gson.toJson(tidslinjeListe, typeInfo);
-        PrintWriter out = response.getWriter();
-        out.println(json);
-        out.close();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.setContentType("text/html");
+        String remoteMethod = request.getParameter("remoteMethod");
+        PrintWriter out = response.getWriter();
+        if(remoteMethod.equals("getChanges")){
+                    out.println("getChanges");
+        }
+        else if(remoteMethod.equals("addTimeLine")){
+                out.println("addTimeLine");
+        }
+        else if(remoteMethod.equals("getInitState")){
+                out.println("getInitState");
+        }
+        else {
+                out.println("elseStatement");
+        }
+        //response.setContentType("application/json");
+        //Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
+        // List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
+        // String json = gson.toJson(tidslinjeListe, typeInfo);
+        // PrintWriter out = response.getWriter();
+        // out.println(json);
+        out.close();
     }
 }
