@@ -241,8 +241,7 @@ var timeLineModule = (function(){
 
     function addPTimeLine(timeline){
         console.log(timeline)
-        t
-        imeLines.push(timeline);
+        timeLines.push(timeline);
 
     }
 
@@ -270,8 +269,8 @@ var timeLineModule = (function(){
         getInitState : function (){
             getInitPState().then();
         } ,
-        sendTimeLine : function (){
-            sendTimePLine().then();
+        sendTimeLine : function (timeline){
+            sendTimePLine(timeline).then();
         } ,
         getChanges : function (){
             getPChanges().then();
