@@ -152,6 +152,7 @@ var timeLineModule = (function(){
     async function sendTimePLine(timeline) {
         await $.post("/videoServlet",{ remoteMethod: "addTimeLine", timeline: timeline},(res)=>{
            // this.timestamp = new Date().valueOf();
+
             addPTimeLine(timeline);
 
         }).promise();
@@ -239,8 +240,9 @@ var timeLineModule = (function(){
     }
 
     function addPTimeLine(timeline){
-
-        timeLines.push(timeline);
+        console.log(timeline)
+        t
+        imeLines.push(timeline);
 
     }
 

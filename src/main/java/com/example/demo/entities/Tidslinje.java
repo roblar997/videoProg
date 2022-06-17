@@ -10,7 +10,7 @@ public class Tidslinje {
     private Integer end;
     private String text;
 
-    public Tidslinje(String user, Integer timestamp, Integer start, Integer end, String text, Integer like, Integer dislike) {
+    public Tidslinje(String user, Integer timestamp, Integer start, Integer end, String text, Boolean like, Boolean dislike) {
         this.user = user;
         this.timestamp = timestamp;
         this.start = start;
@@ -20,8 +20,8 @@ public class Tidslinje {
         this.dislike = dislike;
     }
 
-    private Integer like;
-    private Integer dislike;
+    private Boolean like;
+    private Boolean dislike;
 
 
     public String getUser() {
@@ -64,19 +64,19 @@ public class Tidslinje {
         this.text = text;
     }
 
-    public Integer getLike() {
+    public Boolean getLike() {
         return like;
     }
 
-    public void setLike(Integer like) {
+    public void setLike(Boolean like) {
         this.like = like;
     }
 
-    public Integer getDislike() {
+    public Boolean getDislike() {
         return dislike;
     }
 
-    public void setDislike(Integer dislike) {
+    public void setDislike(Boolean dislike) {
         this.dislike = dislike;
     }
 
