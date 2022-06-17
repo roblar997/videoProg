@@ -191,7 +191,6 @@ var timeLineModule = (function(){
     }
     function filterPListByTime(start,end,percent){
         return timeLines.filter((x)=>{
-            console.log(x);
             return x.start >= start && x.end <= end && ((x.start-x.end)/(start-end))*100 >= percent;
         })
     }
@@ -240,9 +239,26 @@ var timeLineModule = (function(){
     }
 
     function addPTimeLine(timeline){
-        console.log(timeline)
         timeLines.push(timeline);
+        $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+            " of " + $( "#slider-range" ).slider( "values", 1 ) );
+        $( "#likes" ).val(timeLineModule.countLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
+        $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
+        $("#comments").empty()
+        obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
+        let html = '<div style="background-color:rgb(220,220,220); color:black;margin-bottom: 40px;">';
 
+        for (let key in obj) {
+            html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
+            html += '<p>' +  " <strong>timestamp</strong>: " + obj[key].timestamp + '</p>';
+            html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
+            html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
+            html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
+            html += '<div style="background-color:white; color:white">f</div>'
+        }
+
+        $(html).appendTo("#comments");
+        $("#comments").css("background-color","white")
     }
 
     return {
