@@ -13,7 +13,6 @@ import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-//
 import javax.ejb.EJB;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -81,10 +80,22 @@ public class videoServlet extends HttpServlet {
                     string.append(line);
             } catch (Exception e) { }
 
-            Type typeInfo = new TypeToken<tidslinjeMethodWrapper>() {}.getType();
+
             tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
 
-            out.println(wrapp.getTimeline().toString());
+            try {
+                String remoteMethod = wrapp.getRemoteMethod();
+                Tidslinje tidslinje = gson.fromJson(wrapp.getTimeline(), Tidslinje.class);
+                if(remoteMethod.equals("addTimeLine")){
+                    tidslinjeDAO.addTidslinje(tidslinje);
+                    out.println(tidslinje.toString());
+                }
+
+            }
+            catch (Exception ex){
+                out.println(ex.getMessage());
+                return;
+            }
 
 
 

@@ -46,6 +46,19 @@ public class Tidslinje {
         return start;
     }
 
+    @Override
+    public String toString() {
+        return "Tidslinje{" +
+                "user='" + user + '\'' +
+                ", timestamp=" + timestamp +
+                ", start=" + start +
+                ", end=" + end +
+                ", text='" + text + '\'' +
+                ", like=" + like +
+                ", dislike=" + dislike +
+                '}';
+    }
+
     public void setStart(Integer start) {
         this.start = start;
     }
