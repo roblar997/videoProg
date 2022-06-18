@@ -20,10 +20,10 @@ public class TidslinjeDAO {
         this.tidslinjer = new LinkedList<Tidslinje>();
 
         //INIT DATA
-        Tidslinje tidslinje1 = new Tidslinje("ARE",200000,0,2,"RWR",false,true);
-        Tidslinje tidslinje2 = new Tidslinje("rr",300000,0,2,"see",false,true);
-        Tidslinje tidslinje3 = new Tidslinje("gse",500000,0,2,"ses",false,true);
-        Tidslinje tidslinje4 = new Tidslinje("rr",600000,0,2,"RestsWR",false,true);
+        Tidslinje tidslinje1 = new Tidslinje("ARE",200000L,0,2,"RWR",false,true);
+        Tidslinje tidslinje2 = new Tidslinje("rr",300000L,0,2,"see",false,true);
+        Tidslinje tidslinje3 = new Tidslinje("gse",500000L,0,2,"ses",false,true);
+        Tidslinje tidslinje4 = new Tidslinje("rr",600000L,0,2,"RestsWR",false,true);
         tidslinjer.add(tidslinje1);
         tidslinjer.add(tidslinje2);
         tidslinjer.add(tidslinje3);
