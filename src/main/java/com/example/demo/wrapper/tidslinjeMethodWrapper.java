@@ -19,7 +19,7 @@ public class tidslinjeMethodWrapper {
         this.remoteMethod = remoteMethod;
     }
 
-    public String getTimeline() {
+    public Tidslinje getTimeline() {
         return timeline;
     }
 
@@ -36,11 +36,11 @@ public class tidslinjeMethodWrapper {
         return Objects.hash(remoteMethod, timeline);
     }
 
-    public void setTimeline(String timeline) {
+    public void setTimeline(Tidslinje timeline) {
         this.timeline = timeline;
     }
 
     private String remoteMethod;
-    private String timeline;
+    private Tidslinje timeline;
 
 }

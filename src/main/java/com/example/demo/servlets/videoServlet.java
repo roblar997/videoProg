@@ -85,7 +85,7 @@ public class videoServlet extends HttpServlet {
 
             try {
                 String remoteMethod = wrapp.getRemoteMethod();
-                Tidslinje tidslinje = gson.fromJson(wrapp.getTimeline(), Tidslinje.class);
+                Tidslinje tidslinje = wrapp.getTimeline();
                 if(remoteMethod.equals("addTimeLine")){
                     tidslinjeDAO.addTidslinje(tidslinje);
                     out.println(tidslinje.toString());
