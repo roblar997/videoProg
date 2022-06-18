@@ -51,13 +51,7 @@ public class videoServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         if(request.getContentType().equals("application/x-www-form-urlencoded; charset=UTF-8")){
             String remoteMethod = request.getParameter("remoteMethod");
-            if(remoteMethod.equals("getChanges")){
-                out.println("getChanges");
-            }
-            else if(remoteMethod.equals("addTimeLine")){
-                out.println("addTimeLine");
-            }
-            else if(remoteMethod.equals("getInitState")){
+             if(remoteMethod.equals("getInitState")){
                 response.setContentType("application/json");
                 Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
 
@@ -69,6 +63,7 @@ public class videoServlet extends HttpServlet {
 
                 String json = gson.toJson(wrapped, typeInfo);
                 out.println(json);
+                return;
             }
             else {
                 out.println("elseStatement");
@@ -121,6 +116,7 @@ public class videoServlet extends HttpServlet {
                     List<Tidslinje> tidslinjene = tidslinjeDAO.getChanges(wrapptimestamp.getTimestamp());
                     String json = gson.toJson(tidslinjene, typeInfo);
                     out.println(json);
+                    return;
                 }
 
             }
