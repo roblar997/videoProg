@@ -73,8 +73,16 @@ public class videoServlet extends HttpServlet {
             }
         }
         else if(request.getContentType().equals("application/json; charset=UTF-8")){
-            response.setContentType("application/json");
-            out.println(request.getParameter("remoteMethod"));
+            StringBuffer string = new StringBuffer();
+            String line = null;
+            try(BufferedReader reader = request.getReader()){
+                while ((line = reader.readLine()) != null)
+                    string.append(line);
+            } catch (Exception e) { }
+
+            Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
+            tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
+            out.println(wrapp.toString());
 
         }
       else {
