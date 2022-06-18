@@ -21,6 +21,14 @@ public class tidslinjeMethodWrapper {
     }
 
     @Override
+    public String toString() {
+        return "tidslinjeMethodWrapper{" +
+                "method='" + method + '\'' +
+                ", tidslinje=" + tidslinje +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(method, tidslinje);
     }
