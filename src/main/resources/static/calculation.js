@@ -152,7 +152,7 @@ var timeLineModule = (function(){
 
         await $.post({
             url: '/videoServlet',
-            data: { remoteMethod: "addTimeLine", timeline: timeline},
+            data: { "remoteMethod": "addTimeLine", "timeline": timeline},
             contentType: 'application/json; charset=utf-8'
         }).done((res) => {
             addPTimeLine(timeline);
@@ -163,7 +163,7 @@ var timeLineModule = (function(){
 
         await $.post({
             url: '/videoServlet',
-            data: { remoteMethod: "getChanges", timestamp: timestamp},
+            data: { "remoteMethod": "getChanges", "timestamp": timestamp},
             contentType: 'application/json; charset=utf-8'
         }).done((res) => {
 
