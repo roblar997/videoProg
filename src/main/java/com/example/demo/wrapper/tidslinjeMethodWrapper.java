@@ -9,26 +9,7 @@ import java.util.Objects;
 
 public class tidslinjeMethodWrapper {
 
-    @Override
-    public String toString() {
-        return "tidslinjeMethodWrapper{" +
-                "remoteMethod='" + remoteMethod + '\'' +
-                ", timeline=" + timeline +
-                '}';
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof tidslinjeMethodWrapper)) return false;
-        tidslinjeMethodWrapper that = (tidslinjeMethodWrapper) o;
-        return Objects.equals(remoteMethod, that.remoteMethod) && Objects.equals(timeline, that.timeline);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(remoteMethod, timeline);
-    }
 
     public String getRemoteMethod() {
         return remoteMethod;
@@ -38,15 +19,15 @@ public class tidslinjeMethodWrapper {
         this.remoteMethod = remoteMethod;
     }
 
-    public Tidslinje getTimeline() {
+    public String getTimeline() {
         return timeline;
     }
 
-    public void setTimeline(Tidslinje timeline) {
+    public void setTimeline(String timeline) {
         this.timeline = timeline;
     }
 
     private String remoteMethod;
-    private Tidslinje timeline;
+    private String timeline;
 
 }
