@@ -13,9 +13,9 @@
 
     <script>
 
-        $( function() {
+        $( async function() {
             //timeLineModule.initFeatureTree(100,100)
-            timeLineModule.getInitState();
+            await timeLineModule.getInitState();
             $( "#likes" ).val( "0");
             $( "#dislikes" ).val( "0");
             $("#addFeature").click((e) => {

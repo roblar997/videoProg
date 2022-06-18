@@ -282,8 +282,8 @@ var timeLineModule = (function(){
         getTimeLine: function(commentId){
             getPTimeLine(commentId)
         } ,
-        getInitState : function (){
-            getInitPState().then();
+        getInitState : async function (){
+            await getInitPState().then();
         } ,
         sendTimeLine : function (timeline){
             sendTimePLine(timeline).then();
