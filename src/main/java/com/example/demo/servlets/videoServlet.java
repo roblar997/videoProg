@@ -80,7 +80,7 @@ public class videoServlet extends HttpServlet {
                     string.append(line);
             } catch (Exception e) { }
 
-            Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
+            Type typeInfo = new TypeToken<tidslinjeMethodWrapper>() {}.getType();
             tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
             out.println(wrapp.toString());
 
