@@ -166,8 +166,8 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-               for (let key in res.timelines){
-                   console.log(res.timelines[key])
+               for (let key in res){
+                   console.log(res[key])
                }
             timestamp = new Date().valueOf();
             // for (let key in res.features){
