@@ -155,6 +155,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
+            console.log(timeline)
             addPTimeLine(timeline);
         }).promise();
 
@@ -165,7 +166,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-                
+
                for (let key in res){
                    console.log(res[key])
                }
@@ -240,9 +241,7 @@ var timeLineModule = (function(){
             return x.start >= start && x.end <= end && x.user == user;
         })
     }
-    function getPTimeLine(commentId){
-        return []
-    }
+
 
     function addPTimeLine(timeline){
         timeLines.push(timeline);
