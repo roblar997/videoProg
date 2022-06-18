@@ -43,8 +43,10 @@ public class videoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        String remoteMethod = request.getParameter("remoteMethod");
+
         PrintWriter out = response.getWriter();
+        out.println(request.getContentType());
+        String remoteMethod = request.getParameter("remoteMethod");
         if(remoteMethod.equals("getChanges")){
                     out.println("getChanges");
         }
