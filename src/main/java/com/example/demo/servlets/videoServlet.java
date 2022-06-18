@@ -74,7 +74,7 @@ public class videoServlet extends HttpServlet {
             out.println("Did receive json");
         }
       else {
-          out.println("Error 404, site not found");
+          out.println(request.getContentType());
         }
 
 
