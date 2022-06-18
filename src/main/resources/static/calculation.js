@@ -160,13 +160,13 @@ var timeLineModule = (function(){
 
     }
     async function getPChanges() {
-
+        let timestampCopy = timestamp;
         await $.post({
             url: '/videoServlet',
-            data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
+            data: JSON.stringify({ "remoteMethod": "addTimeLine", "timestamp": timestampCopy}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-
+                console.log("ok");
             //this.timestamp = timestamp;
 
             // for (let key in res.features){
