@@ -12,6 +12,7 @@ import com.example.demo.wrapper.tidslinjeMethodWrapper;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import sun.jvm.hotspot.oops.OopUtilities;
 
 import javax.ejb.EJB;
 import javax.servlet.*;
@@ -82,15 +83,8 @@ public class videoServlet extends HttpServlet {
 
             Type typeInfo = new TypeToken<tidslinjeMethodWrapper>() {}.getType();
             tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
-            Type tidslinjen = new TypeToken<Tidslinje>() {}.getType();
-            try {
-                Tidslinje wrappen = gson.fromJson(wrapp.getTimeline(), Tidslinje.class);
-                out.println(wrappen.toString());
-            }
-            catch (Exception ex){
-                out.println(ex.getMessage());
-                return;
-            }
+
+            out.println(wrapp.getTimeline().toString());
 
 
 
