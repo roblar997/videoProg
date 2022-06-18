@@ -142,7 +142,6 @@ var timeLineModule = (function(){
                 this.fenwFeatureTree.update(value.timeslot,value.featureNmb,value.val);
             }
             for (const [key, value] of Object.entries(res.tidslinjer)){
-                console.log(value.end)
                 timeLines.push(value)
            }
 
@@ -191,7 +190,6 @@ var timeLineModule = (function(){
     }
     function filterPListByTime(start,end,percent){
         return timeLines.filter((x)=>{
-            console.log(x.start + " " + x.end)
             return x.start >= start && x.end <= end && ((x.start-x.end)/(start-end))*100 >= percent;
         })
     }
