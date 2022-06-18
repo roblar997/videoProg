@@ -156,7 +156,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
             console.log(timeline)
-            //addPTimeLine(timeline);
+            addPTimeLine(timeline);
         }).promise();
 
     }
@@ -290,8 +290,8 @@ var timeLineModule = (function(){
         getInitState : async function (){
             await getInitPState().then();
         } ,
-        sendTimeLine : function (timeline){
-            sendTimePLine(timeline).then();
+        sendTimeLine : async function (timeline){
+            await sendTimePLine(timeline).then();
         } ,
         getChanges : function (){
             getPChanges().then();
