@@ -84,14 +84,15 @@ public class videoServlet extends HttpServlet {
             tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
             Type tidslinjen = new TypeToken<Tidslinje>() {}.getType();
             try {
-                Object wrappen = gson.fromJson(wrapp.getTimeline(), Object.class);
+                Tidslinje wrappen = (Tidslinje) gson.fromJson(wrapp.getTimeline(), Object.class);
+                out.println(wrappen.toString());
             }
             catch (Exception ex){
                 out.println("ikke json skikkelig");
                 return;
             }
 
-            out.println(wrapp.getTimeline());
+
 
         }
       else {
