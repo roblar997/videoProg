@@ -88,6 +88,7 @@ public class videoServlet extends HttpServlet {
             tidslinjeMethodWrapper wrapp = null;
             try{
                 wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
+                out.println("OK");
             }
             catch (Exception ex){
                 isTypetidslinjeMethodWrapper = false;
