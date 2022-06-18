@@ -9,6 +9,9 @@ public class Tidslinje {
     private Integer start;
     private Integer end;
     private String text;
+    private Boolean like;
+    private Boolean dislike;
+
 
     public Tidslinje(String user, Integer timestamp, Integer start, Integer end, String text, Boolean like, Boolean dislike) {
         this.user = user;
@@ -20,8 +23,7 @@ public class Tidslinje {
         this.dislike = dislike;
     }
 
-    private Boolean like;
-    private Boolean dislike;
+
 
 
     public String getUser() {
