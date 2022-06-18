@@ -8,6 +8,7 @@ import com.example.demo.entities.InitFenwick;
 import com.example.demo.entities.Tidslinje;
 
 import com.example.demo.wrapper.InitFenwickTidslinjeFeatureWrapper;
+import com.example.demo.wrapper.tidslinjeMethodWrapper;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -16,6 +17,7 @@ import javax.ejb.EJB;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
@@ -71,8 +73,17 @@ public class videoServlet extends HttpServlet {
             }
         }
         else if(request.getContentType().equals("application/json; charset=UTF-8")){
-            String remoteMethod = request.getParameter("remoteMethod");
-            out.println( request.getParameterValues("name")[0]);
+            StringBuffer string = new StringBuffer();
+            String line = null;
+            try(BufferedReader reader = request.getReader()){
+                while ((line = reader.readLine()) != null)
+                    string.append(line);
+            } catch (Exception e) { }
+
+            Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
+            tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
+            out.println(wrapp);
+
         }
       else {
           out.println(request.getContentType());
