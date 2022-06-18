@@ -12,7 +12,7 @@ import com.example.demo.wrapper.tidslinjeMethodWrapper;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import sun.jvm.hotspot.oops.OopUtilities;
+
 //
 import javax.ejb.EJB;
 import javax.servlet.*;
