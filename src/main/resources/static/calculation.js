@@ -290,8 +290,8 @@ var timeLineModule = (function(){
         getInitState : async function (){
             await getInitPState().then();
         } ,
-        sendTimeLine : async function (timeline){
-            await sendTimePLine(timeline).then();
+        sendTimeLine : function (timeline){
+            sendTimePLine(timeline).then();
         } ,
         getChanges : function (){
             getPChanges().then();

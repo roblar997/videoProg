@@ -97,7 +97,6 @@ public class videoServlet extends HttpServlet {
                     Tidslinje tidslinje = wrapp.getTimeline();
                     if(remoteMethod.equals("addTimeLine")){
                         tidslinjeDAO.addTidslinje(tidslinje);
-                        out.println("OK");
                         out.close();
                         return;
                     }
