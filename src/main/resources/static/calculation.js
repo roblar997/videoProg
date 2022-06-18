@@ -162,7 +162,7 @@ var timeLineModule = (function(){
     async function getPChanges() {
         await $.post({
             url: '/videoServlet',
-            data: JSON.stringify({ "remoteMethod": "get", "timestamp": timestamp}),
+            data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
                 console.log("ok");

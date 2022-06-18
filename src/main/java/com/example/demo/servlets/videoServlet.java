@@ -113,7 +113,7 @@ public class videoServlet extends HttpServlet {
             try{
                 wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
-                if(remoteMethod.equals("getChanges")){
+                if(remoteMethod.equals("timestamp")){
                     out.println(wrapptimestamp.toString());
                 }
 
