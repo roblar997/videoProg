@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Tidslinje {
     private String user;
-    private Integer timestamp;
+    private Long timestamp;
     private Integer start;
     private Integer end;
     private String text;
@@ -13,7 +13,7 @@ public class Tidslinje {
     private Boolean dislike;
 
 
-    public Tidslinje(String user, Integer timestamp, Integer start, Integer end, String text, Boolean like, Boolean dislike) {
+    public Tidslinje(String user, Long timestamp, Integer start, Integer end, String text, Boolean like, Boolean dislike) {
         this.user = user;
         this.timestamp = timestamp;
         this.start = start;
@@ -34,11 +34,11 @@ public class Tidslinje {
         this.user = user;
     }
 
-    public Integer getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Integer timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 
