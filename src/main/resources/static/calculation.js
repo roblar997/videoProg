@@ -142,7 +142,7 @@ var timeLineModule = (function(){
                 this.fenwFeatureTree.update(value.timeslot,value.featureNmb,value.val);
             }
             for (const [key, value] of Object.entries(res.tidslinjer)){
-
+                console.log(value.end)
                 timeLines.push(value)
            }
 
