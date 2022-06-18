@@ -165,9 +165,11 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-                console.log("ok");
-            //this.timestamp = timestamp;
 
+               for (let key in res.timelines){
+                   console.log(res.timelines[key])
+               }
+            timestamp = new Date().valueOf();
             // for (let key in res.features){
             //      this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
             // }
