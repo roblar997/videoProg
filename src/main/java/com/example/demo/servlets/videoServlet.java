@@ -71,7 +71,7 @@ public class videoServlet extends HttpServlet {
             }
         }
         else if(request.getContentType().equals("application/json; charset=UTF-8")){
-            response.setContentType("application/json");
+
             StringBuffer string = new StringBuffer();
             String line = null;
             try(BufferedReader reader = request.getReader()){
@@ -110,6 +110,7 @@ public class videoServlet extends HttpServlet {
             Boolean isTypetimestampMethodWrapper = true;
             timestampMethodWrapper wrapptimestamp = null;
             try{
+                response.setContentType("application/json");
                 wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
                 if(remoteMethod.equals("getChanges")){
