@@ -45,30 +45,38 @@ public class videoServlet extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        out.println(request.getContentType());
-        String remoteMethod = request.getParameter("remoteMethod");
-        if(remoteMethod.equals("getChanges")){
-                    out.println("getChanges");
-        }
-        else if(remoteMethod.equals("addTimeLine")){
+        if(request.getContentType().equals("application/x-www-form-urlencoded; charset=UTF-8")){
+            String remoteMethod = request.getParameter("remoteMethod");
+            if(remoteMethod.equals("getChanges")){
+                out.println("getChanges");
+            }
+            else if(remoteMethod.equals("addTimeLine")){
                 out.println("addTimeLine");
-        }
-        else if(remoteMethod.equals("getInitState")){
-               response.setContentType("application/json");
-               Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
+            }
+            else if(remoteMethod.equals("getInitState")){
+                response.setContentType("application/json");
+                Type typeInfo = new TypeToken<InitFenwickTidslinjeFeatureWrapper>() {}.getType();
 
-               List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
-               List<Feature>   features       = featureDAO.getFeatures();
+                List<Tidslinje> tidslinjeListe = tidslinjeDAO.getTidslinjer();
+                List<Feature>   features       = featureDAO.getFeatures();
 
-               InitFenwick initFenwick = initFenwickDAO.getFenwick();
-            InitFenwickTidslinjeFeatureWrapper wrapped = WrapperService.assembleInitFenwickTidslinjeWrapper(initFenwick,tidslinjeListe,features);
+                InitFenwick initFenwick = initFenwickDAO.getFenwick();
+                InitFenwickTidslinjeFeatureWrapper wrapped = WrapperService.assembleInitFenwickTidslinjeWrapper(initFenwick,tidslinjeListe,features);
 
-               String json = gson.toJson(wrapped, typeInfo);
-               out.println(json);
-        }
-        else {
+                String json = gson.toJson(wrapped, typeInfo);
+                out.println(json);
+            }
+            else {
                 out.println("elseStatement");
+            }
         }
+        else if(request.getContentType().equals("application/json; charset=utf-8")){
+            out.println("Did receive json");
+        }
+      else {
+          out.println("Error 404, site not found");
+        }
+
 
         out.close();
     }
