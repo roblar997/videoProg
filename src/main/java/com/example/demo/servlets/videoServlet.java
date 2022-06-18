@@ -116,6 +116,7 @@ public class videoServlet extends HttpServlet {
             }
             catch (Exception ex){
                 isTypetimestampMethodWrapper = false;
+                out.println(ex.getMessage());
             }
 
 
