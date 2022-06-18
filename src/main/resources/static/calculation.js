@@ -132,7 +132,7 @@ var timeLineModule = (function(){
 
     async function getInitPState() {
         await $.post("/videoServlet",{ remoteMethod: "getInitState"},(res)=>{
-            this.timestamp = new Date().valueOf();
+            timestamp = new Date().valueOf();
             this.fenwFeatureTree = new FenwFeatureTree(res.initFenwick.nmbFeatures,res.initFenwick.size)
             //this.timestamp = res.timestamp
 
@@ -160,10 +160,9 @@ var timeLineModule = (function(){
 
     }
     async function getPChanges() {
-        let timestampCopy = timestamp;
         await $.post({
             url: '/videoServlet',
-            data: JSON.stringify({ "remoteMethod": "addTimeLine", "timestamp": timestampCopy}),
+            data: JSON.stringify({ "remoteMethod": "addTimeLine", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
                 console.log("ok");
