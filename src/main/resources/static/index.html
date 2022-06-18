@@ -118,8 +118,8 @@
                     slide: function( event, ui ) {
                         $( "#likes" ).val(timeLineModule.countLikes(ui.values[ 0 ],ui.values[ 1 ],$("#percent").val()  ) );
                         $( "#dislikes" ).val(timeLineModule.countDisLikes(ui.values[ 0 ],ui.values[ 1 ],$("#percent").val() ) );
-                        $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
-                            " of " + $( "#slider-range" ).slider( "values", 1 ) );
+                        $( "#amount" ).val( "" + ui.values[ 0 ] +
+                            " of " + ui.values[ 1 ] );
                         $("#comments").empty()
                         obj=timeLineModule.filterListByTime(ui.values[ 0 ],ui.values[ 1 ],$("#percent").val()  );
                         let html = '<div style="background-color:rgb(220,220,220); color:black;margin-bottom: 40px;">';
