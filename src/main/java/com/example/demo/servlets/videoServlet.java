@@ -71,7 +71,8 @@ public class videoServlet extends HttpServlet {
             }
         }
         else if(request.getContentType().equals("application/json; charset=UTF-8")){
-            out.println("Did receive json");
+            String remoteMethod = request.getParameter("remoteMethod");
+            out.println(remoteMethod);
         }
       else {
           out.println(request.getContentType());
