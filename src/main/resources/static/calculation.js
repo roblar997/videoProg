@@ -156,7 +156,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
             console.log(timeline)
-            addPTimeLine(timeline);
+            //addPTimeLine(timeline);
         }).promise();
 
     }
