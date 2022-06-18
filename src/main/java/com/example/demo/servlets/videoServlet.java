@@ -75,6 +75,7 @@ public class videoServlet extends HttpServlet {
             }
         }
         else if(request.getContentType().equals("application/json; charset=UTF-8")){
+            response.setContentType("application/json");
             StringBuffer string = new StringBuffer();
             String line = null;
             try(BufferedReader reader = request.getReader()){

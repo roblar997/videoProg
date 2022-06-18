@@ -165,7 +165,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-
+                
                for (let key in res){
                    console.log(res[key])
                }
