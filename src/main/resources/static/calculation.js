@@ -132,7 +132,7 @@ var timeLineModule = (function(){
 
     async function getInitPState() {
         await $.post("/videoServlet",{ remoteMethod: "getInitState"},(res)=>{
-            //this.timestamp = new Date().valueOf();
+            this.timestamp = new Date().valueOf();
             this.fenwFeatureTree = new FenwFeatureTree(res.initFenwick.nmbFeatures,res.initFenwick.size)
             //this.timestamp = res.timestamp
 
