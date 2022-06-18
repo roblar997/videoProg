@@ -63,6 +63,7 @@ public class videoServlet extends HttpServlet {
 
                 String json = gson.toJson(wrapped, typeInfo);
                 out.println(json);
+                out.close();
                 return;
             }
             else {
@@ -97,6 +98,7 @@ public class videoServlet extends HttpServlet {
                     if(remoteMethod.equals("addTimeLine")){
                         tidslinjeDAO.addTidslinje(tidslinje);
                         out.println("OK");
+                        out.close();
                         return;
                     }
 
@@ -116,6 +118,7 @@ public class videoServlet extends HttpServlet {
                     List<Tidslinje> tidslinjene = tidslinjeDAO.getChanges(wrapptimestamp.getTimestamp());
                     String json = gson.toJson(tidslinjene, typeInfo);
                     out.println(json);
+                    out.close();
                     return;
                 }
 
