@@ -191,6 +191,7 @@ var timeLineModule = (function(){
     }
     function filterPListByTime(start,end,percent){
         return timeLines.filter((x)=>{
+            console.log(x.start + " " + x.end)
             return x.start >= start && x.end <= end && ((x.start-x.end)/(start-end))*100 >= percent;
         })
     }
