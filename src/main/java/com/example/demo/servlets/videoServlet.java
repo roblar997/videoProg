@@ -9,6 +9,7 @@ import com.example.demo.entities.Tidslinje;
 
 import com.example.demo.wrapper.InitFenwickTidslinjeFeatureWrapper;
 import com.example.demo.wrapper.tidslinjeMethodWrapper;
+import com.example.demo.wrapper.timestampMethodWrapper;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Locale;
 
 
 @WebServlet(name = "videoServlet", value = "/videoServlet")
@@ -81,26 +83,46 @@ public class videoServlet extends HttpServlet {
             } catch (Exception e) { }
 
 
-            tidslinjeMethodWrapper wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
-
-            try {
-                String remoteMethod = wrapp.getRemoteMethod();
-                Tidslinje tidslinje = wrapp.getTimeline();
-                if(remoteMethod.equals("addTimeLine")){
-                    tidslinjeDAO.addTidslinje(tidslinje);
-                    out.println(tidslinje.toString());
-                }
-
+            //Safely find right class to convert to.
+            Boolean isTypetidslinjeMethodWrapper = true;
+            tidslinjeMethodWrapper wrapp = null;
+            try{
+                wrapp = gson.fromJson(string.toString(),tidslinjeMethodWrapper.class);
             }
             catch (Exception ex){
-                out.println(ex.getMessage());
-                return;
+                isTypetidslinjeMethodWrapper = false;
             }
+
+            if(isTypetidslinjeMethodWrapper){
+                try {
+                    String remoteMethod = wrapp.getRemoteMethod();
+                    Tidslinje tidslinje = wrapp.getTimeline();
+                    if(remoteMethod.equals("addTimeLine")){
+                        tidslinjeDAO.addTidslinje(tidslinje);
+                        out.println(tidslinje.toString());
+                    }
+
+                }
+                catch (Exception ex){
+                    out.println(ex.getMessage());
+                    return;
+                }
+            }
+            Boolean isTypetimestampMethodWrapper = true;
+            timestampMethodWrapper wrapptimestamp = null;
+            try{
+                wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
+                out.println(wrapptimestamp.getRemoteMethod().toString());
+            }
+            catch (Exception ex){
+                isTypetimestampMethodWrapper = false;
+            }
+
 
 
 
         }
-      else {
+        else {
           out.println(request.getContentType());
         }
 

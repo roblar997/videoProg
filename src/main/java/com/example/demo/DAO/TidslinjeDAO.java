@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.ejb.Stateless;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Component
@@ -38,7 +39,10 @@ public class TidslinjeDAO {
     }
 
     public List<Tidslinje> getChanges(Long timestamp){
-        return this.tidslinjer;
+
+        //Get newest changes
+        return tidslinjer.stream().filter(x-> x.getTimestamp() > timestamp).collect(Collectors.toList());
+
     }
 
 
