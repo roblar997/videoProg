@@ -70,7 +70,7 @@ public class videoServlet extends HttpServlet {
                 out.println("elseStatement");
             }
         }
-        else if(request.getContentType().equals("application/json; charset=utf-8")){
+        else if(request.getContentType().equals("application/json; charset=UTF-8")){
             out.println("Did receive json");
         }
       else {
