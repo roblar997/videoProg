@@ -112,7 +112,7 @@ public class videoServlet extends HttpServlet {
             timestampMethodWrapper wrapptimestamp = null;
             try{
                 wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
-                out.println(wrapptimestamp.getRemoteMethod().toString());
+                out.println(wrapptimestamp.getTimestamp());
             }
             catch (Exception ex){
                 isTypetimestampMethodWrapper = false;
