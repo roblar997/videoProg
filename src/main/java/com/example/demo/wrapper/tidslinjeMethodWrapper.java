@@ -23,6 +23,27 @@ public class tidslinjeMethodWrapper {
         return timeline;
     }
 
+    @Override
+    public String toString() {
+        return "tidslinjeMethodWrapper{" +
+                "remoteMethod='" + remoteMethod + '\'' +
+                ", timeline='" + timeline + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof tidslinjeMethodWrapper)) return false;
+        tidslinjeMethodWrapper that = (tidslinjeMethodWrapper) o;
+        return Objects.equals(remoteMethod, that.remoteMethod) && Objects.equals(timeline, that.timeline);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(remoteMethod, timeline);
+    }
+
     public void setTimeline(String timeline) {
         this.timeline = timeline;
     }
