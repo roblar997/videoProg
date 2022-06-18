@@ -152,7 +152,7 @@ var timeLineModule = (function(){
 
         await $.post({
             url: '/videoServlet',
-            data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": JSON.stringify(timeline)}),
+            data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
             addPTimeLine(timeline);
