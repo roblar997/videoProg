@@ -9,43 +9,44 @@ import java.util.Objects;
 
 public class tidslinjeMethodWrapper {
 
-    private String method;
-    private Tidslinje tidslinje;
+    @Override
+    public String toString() {
+        return "tidslinjeMethodWrapper{" +
+                "remoteMethod='" + remoteMethod + '\'' +
+                ", timeline=" + timeline +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof tidslinjeMethodWrapper)) return false;
         tidslinjeMethodWrapper that = (tidslinjeMethodWrapper) o;
-        return Objects.equals(method, that.method) && Objects.equals(tidslinje, that.tidslinje);
-    }
-
-    @Override
-    public String toString() {
-        return "tidslinjeMethodWrapper{" +
-                "method='" + method + '\'' +
-                ", tidslinje=" + tidslinje +
-                '}';
+        return Objects.equals(remoteMethod, that.remoteMethod) && Objects.equals(timeline, that.timeline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(method, tidslinje);
+        return Objects.hash(remoteMethod, timeline);
     }
 
-    public String getMethod() {
-        return method;
+    public String getRemoteMethod() {
+        return remoteMethod;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
+    public void setRemoteMethod(String remoteMethod) {
+        this.remoteMethod = remoteMethod;
     }
 
-    public Tidslinje getTidslinje() {
-        return tidslinje;
+    public Tidslinje getTimeline() {
+        return timeline;
     }
 
-    public void setTidslinje(Tidslinje tidslinje) {
-        this.tidslinje = tidslinje;
+    public void setTimeline(Tidslinje timeline) {
+        this.timeline = timeline;
     }
+
+    private String remoteMethod;
+    private Tidslinje timeline;
+
 }
