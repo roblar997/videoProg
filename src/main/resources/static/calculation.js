@@ -255,7 +255,8 @@ var timeLineModule = (function(){
 
         for (let key in obj) {
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
-            html += '<p>' +  " <strong>timestamp</strong>: " + obj[key].timestamp + '</p>';
+            html += '<p>' +  " <strong>timestampCreated</strong>: " + obj[key].timestampCreated + '</p>';
+            html += '<p>' +  " <strong>timestampChanged</strong>: " + obj[key].timestampChanged + '</p>';
             html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
@@ -318,7 +319,8 @@ var timeLineModule = (function(){
             let tidslinjeData = {
 
                 user:   $("#commentUser").val().trim(),
-                timestamp: new Date().valueOf(),
+                timestampCreated: new Date().valueOf(),
+                timestampChanged: new Date().valueOf(),
                 start: $( "#slider-range" ).slider( "values", 0 ) ,
                 end: $( "#slider-range" ).slider( "values", 1 ),
                 text:  $("#commentComment").val().trim(),
