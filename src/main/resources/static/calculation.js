@@ -188,27 +188,28 @@ var timeLineModule = (function(){
                    }
                }
             timestamp = new Date().valueOf();
-            // for (let key in res.features){
-            //      this.fenwFeatureTree.update(res.features[key].timeslot,res.features[key].featureNmb,res.features[key].val);
-            // }
+            $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+                " of " + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#likes" ).val(timeLineModule.countLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
+            $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
+            $("#comments").empty()
+            obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
+            let html = '<div style="background-color:rgb(220,220,220); color:black;margin-bottom: 40px;">';
 
-            // for (let key in res.timelines){
+            for (let key in obj) {
+                html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
+                html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
+                html += '<p>' +  " <strong>timestampCreated</strong>: " + obj[key].timestampCreated + '</p>';
+                html += '<p>' +  " <strong>timestampChanged</strong>: " + obj[key].timestampChanged + '</p>';
+                html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
+                html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
+                html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
+                html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
+                html += '<div style="background-color:white; color:white">f</div>'
+            }
 
-            //   if(res.timelines[key].command=="ADD"){
-            //           this.timeLines.push(res.timelines[key].postTimeLine)
-            //   }
-
-            //  else if(res.timelines[key].command=="REMOVE"){
-            //        let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
-            //        this.timeLines.splice(index,1)
-            //  }
-
-            //  else if(res.timelines[key].command=="CHANGE"){
-            //      let index = this.timeLines.findIndex((x)=>{return x.user == res.timelines[key].preTimeLine.user && x.timestamp == res.timelines[key].preTimeLine.timestamp})
-            //      this.timeLines.splice(index,1,timelines[key].postTimeLine)
-            // }
-
-            //  }
+            $(html).appendTo("#comments");
+            $("#comments").css("background-color","white")
         }).promise();
 
 
