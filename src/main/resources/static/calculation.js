@@ -171,17 +171,17 @@ var timeLineModule = (function(){
 
                    if(String(res[key].command)=="ADD"){
                         console.log(res[key].commmand)
-                       this.timeLines.push(res[key].tidslinje)
+                       timeLines.push(res[key].tidslinje)
                    }
                    else if(String(res[key].command)=="CHANGE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
-                       this.timeLines.splice(index,1,res[key].tidslinje)
+                       let index = timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
+                       timeLines.splice(index,1,res[key].tidslinje)
                    }
                    else if(String(res[key].command)=="REMOVE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
-                       this.timeLines.splice(index,1)
+                       let index = timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
+                       timeLines.splice(index,1)
                    }
                    else {
                        console.log("ERROR--" + res[key])
