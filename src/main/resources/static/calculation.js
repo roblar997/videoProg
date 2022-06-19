@@ -167,7 +167,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-               for (let key in res){
+               for (let key in JSON.parse(res)){
 
                    if(res[key].commmand == "ADD"){
                         console.log(res[key].commmand)
@@ -184,7 +184,7 @@ var timeLineModule = (function(){
                        this.timeLines.splice(index,1)
                    }
                    else {
-                       console.log("ERROR--" + res[key])
+                       console.log("ERROR")
                    }
                }
             timestamp = new Date().valueOf();
