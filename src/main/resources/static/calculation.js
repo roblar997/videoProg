@@ -168,7 +168,24 @@ var timeLineModule = (function(){
         }).done((res) => {
 
                for (let key in res){
-                   console.log(res[key])
+
+                   if(res[key].commmand.equals("ADD")){
+                        console.log(res[key].commmand)
+                       this.timeLines.push(res[key].timeline)
+                   }
+                   else if(res[key].command.equals("CHANGE")){
+                       console.log(res[key].commmand)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
+                       this.timeLines.splice(index,1,res[key].timeline)
+                   }
+                   else if(res[key].command.equals("REMOVE")){
+                       console.log(res[key].commmand)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
+                       this.timeLines.splice(index,1)
+                   }
+                   else {
+
+                   }
                }
             timestamp = new Date().valueOf();
             // for (let key in res.features){
