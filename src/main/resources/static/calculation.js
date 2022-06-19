@@ -155,8 +155,8 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            console.log(timeline)
-            addPTimeLine(timeline);
+
+            addPTimeLine(res);
         }).promise();
 
     }
