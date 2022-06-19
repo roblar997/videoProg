@@ -168,20 +168,19 @@ var timeLineModule = (function(){
         }).done((res) => {
 
                for (let key in res){
-                    console.log(res[key])
-                   console.log(String(res[key].command)=="ADD")
-                   if(String(res[key].commmand).equals("ADD")){
+
+                   if(String(res[key].command)=="ADD"){
                         console.log(res[key].commmand)
-                       this.timeLines.push(res[key].timeline)
+                       this.timeLines.push(res[key].tidslinje)
                    }
-                   else if(String(res[key].commmand).equals("CHANGE")){
+                   else if(String(res[key].command)=="CHANGE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
-                       this.timeLines.splice(index,1,res[key].timeline)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
+                       this.timeLines.splice(index,1,res[key].tidslinje)
                    }
-                   else if(String(res[key].commmand).equals("REMOVE")){
+                   else if(String(res[key].command)=="REMOVE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
                        this.timeLines.splice(index,1)
                    }
                    else {
