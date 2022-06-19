@@ -166,9 +166,9 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-                console.log(res[0])
-               for (let key in res){
 
+               for (let key in res){
+                   console.log(res[key].timeline)
                    if(res[key].commmand == "ADD"){
                         console.log(res[key].commmand)
                        this.timeLines.push(res[key].timeline)
