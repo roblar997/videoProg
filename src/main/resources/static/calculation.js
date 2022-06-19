@@ -169,7 +169,7 @@ var timeLineModule = (function(){
 
                for (let key in res){
                     console.log(res[key])
-                   console.log(String(res[key].command))
+                   console.log(String(res[key].command)=="ADD")
                    if(String(res[key].commmand).equals("ADD")){
                         console.log(res[key].commmand)
                        this.timeLines.push(res[key].timeline)
