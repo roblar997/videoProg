@@ -6,29 +6,26 @@ import java.util.Objects;
 
 public class tidslinjeCommandWrapper {
 
-    enum Command {
-        ADD,
-        REMOVE,
-        CHANGE
+    public tidslinjeCommandWrapper(String command, Tidslinje tidslinje) {
     }
 
-    private Command command;
-    private Tidslinje tidslinje;
+
+    private String  command;
+
+    @Override
+    public String toString() {
+        return "tidslinjeCommandWrapper{" +
+                "command='" + command + '\'' +
+                ", tidslinje=" + tidslinje +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof tidslinjeCommandWrapper)) return false;
         tidslinjeCommandWrapper that = (tidslinjeCommandWrapper) o;
-        return command == that.command && Objects.equals(tidslinje, that.tidslinje);
-    }
-
-    @Override
-    public String toString() {
-        return "tidslinjeCommandWrapper{" +
-                "command=" + command +
-                ", tidslinje=" + tidslinje +
-                '}';
+        return Objects.equals(command, that.command) && Objects.equals(tidslinje, that.tidslinje);
     }
 
     @Override
@@ -36,11 +33,13 @@ public class tidslinjeCommandWrapper {
         return Objects.hash(command, tidslinje);
     }
 
-    public Command getCommand() {
+    private Tidslinje tidslinje;
+
+    public String getCommand() {
         return command;
     }
 
-    public void setCommand(Command command) {
+    public void setCommand(String command) {
         this.command = command;
     }
 

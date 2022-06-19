@@ -19,6 +19,9 @@ public class tidslinjeMethodWrapper {
         this.remoteMethod = remoteMethod;
     }
 
+    public tidslinjeMethodWrapper() {
+    }
+
     public Tidslinje getTimeline() {
         return timeline;
     }

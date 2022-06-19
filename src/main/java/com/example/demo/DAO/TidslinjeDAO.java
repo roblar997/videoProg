@@ -1,6 +1,7 @@
 package com.example.demo.DAO;
 
 import com.example.demo.entities.Tidslinje;
+import com.example.demo.wrapper.tidslinjeCommandWrapper;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Stateless;
@@ -14,12 +15,7 @@ import java.util.stream.Collectors;
 public class TidslinjeDAO {
 
     private List<Tidslinje> tidslinjer;
-    enum Command {
-        ADD,
-        REMOVE,
-        CHANGE,
-        NOTHING
-    }
+
 
 
     public  TidslinjeDAO(){
@@ -57,22 +53,14 @@ public class TidslinjeDAO {
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
 
     }
+
     public List<Tidslinje> getLatestAdded(Long timestamp){
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
 
     }
-    public Command decideCommand(Tidslinje tidslinje, Long timestamp){
-        if (tidslinje.getDeleted())
-            return Command.REMOVE;
-        else if(tidslinje.getTimestampCreated() > timestamp)
-            return Command.ADD;
-        else if(tidslinje.getTimestampChanged() > timestamp)
-            return  Command.CHANGE;
-        else
-            return  Command.NOTHING;
-    }
+
 
 
 }
