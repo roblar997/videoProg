@@ -168,8 +168,7 @@ var timeLineModule = (function(){
         }).done((res) => {
 
                for (let key in res){
-                   let json = JSON.parse(res[key])
-                   console.log(json.command)
+                   console.log(res[key].tidslinje)
                    if(res[key].commmand == "ADD"){
                         console.log(res[key].commmand)
                        this.timeLines.push(res[key].timeline)
