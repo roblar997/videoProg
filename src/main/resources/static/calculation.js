@@ -170,7 +170,7 @@ var timeLineModule = (function(){
                for (let key in res){
 
                    if(String(res[key].command)=="ADD"){
-                        console.log(res[key].commmand)
+                        console.log(res[key].tidslinje)
                        timeLines.push(res[key].tidslinje)
                    }
                    else if(String(res[key].command)=="CHANGE"){
