@@ -26,10 +26,10 @@ public class TidslinjeDAO {
         this.tidslinjer = new LinkedList<Tidslinje>();
 
         //INIT DATA
-        Tidslinje tidslinje1 = new Tidslinje("ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
-        Tidslinje tidslinje2 = new Tidslinje("rr",2655579696709L,2655579696709L,0,2,"see",false,true,false);
-        Tidslinje tidslinje3 = new Tidslinje("gse",2655579696709L,2655579696709L,0,2,"ses",false,true,false);
-        Tidslinje tidslinje4 = new Tidslinje("rr",2655579696709L,2655579696709L,0,2,"RestsWR",false,true,false);
+        Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
+        Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,false);
+        Tidslinje tidslinje3 = new Tidslinje(3,"gse",2655579696709L,2655579696709L,0,2,"ses",false,true,false);
+        Tidslinje tidslinje4 = new Tidslinje(4,"rr",2655579696709L,2655579696709L,0,2,"RestsWR",false,true,false);
         tidslinjer.add(tidslinje1);
         tidslinjer.add(tidslinje2);
         tidslinjer.add(tidslinje3);
@@ -39,8 +39,10 @@ public class TidslinjeDAO {
     public List<Tidslinje> getTidslinjer(){
         return this.tidslinjer;
     }
-    public void addTidslinje(Tidslinje tidslinje){
-
+    public Tidslinje addTidslinje(Tidslinje tidslinje){
+            Integer id = 55;
+            tidslinje.setId(id);
+            return  tidslinje;
     }
 
     public List<Tidslinje> getChanges(Long timestamp){

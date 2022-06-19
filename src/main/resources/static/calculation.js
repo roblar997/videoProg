@@ -254,6 +254,7 @@ var timeLineModule = (function(){
         let html = '<div style="background-color:rgb(220,220,220); color:black;margin-bottom: 40px;">';
 
         for (let key in obj) {
+            html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
             html += '<p>' +  " <strong>timestampCreated</strong>: " + obj[key].timestampCreated + '</p>';
             html += '<p>' +  " <strong>timestampChanged</strong>: " + obj[key].timestampChanged + '</p>';
@@ -318,7 +319,7 @@ var timeLineModule = (function(){
 
 
             let tidslinjeData = {
-
+                id: -1,
                 user:   $("#commentUser").val().trim(),
                 timestampCreated: new Date().valueOf(),
                 timestampChanged: new Date().valueOf(),

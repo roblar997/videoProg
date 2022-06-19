@@ -4,6 +4,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Objects;
 
 public class Tidslinje {
+
+    private Integer id;
     private String user;
     private Long timestampCreated;
     private Long timestampChanged;
@@ -14,7 +16,8 @@ public class Tidslinje {
     private Boolean dislike;
     private Boolean isDeleted;
 
-    public Tidslinje(String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
+    public Tidslinje(Integer id, String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
+        this.id = id;
         this.user = user;
         this.timestampCreated = timestampCreated;
         this.timestampChanged = timestampChanged;
@@ -29,7 +32,8 @@ public class Tidslinje {
     @Override
     public String toString() {
         return "Tidslinje{" +
-                "user='" + user + '\'' +
+                "id=" + id +
+                ", user='" + user + '\'' +
                 ", timestampCreated=" + timestampCreated +
                 ", timestampChanged=" + timestampChanged +
                 ", start=" + start +
@@ -46,12 +50,20 @@ public class Tidslinje {
         if (this == o) return true;
         if (!(o instanceof Tidslinje)) return false;
         Tidslinje tidslinje = (Tidslinje) o;
-        return Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike) && Objects.equals(isDeleted, tidslinje.isDeleted);
+        return Objects.equals(id, tidslinje.id) && Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike) && Objects.equals(isDeleted, tidslinje.isDeleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, timestampCreated, timestampChanged, start, end, text, like, dislike, isDeleted);
+        return Objects.hash(id, user, timestampCreated, timestampChanged, start, end, text, like, dislike, isDeleted);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUser() {
