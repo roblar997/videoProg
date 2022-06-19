@@ -184,7 +184,7 @@ var timeLineModule = (function(){
                        this.timeLines.splice(index,1)
                    }
                    else {
-                       console.log("ERROR--" + res[key].commmand)
+                       console.log("ERROR--" + res[key])
                    }
                }
             timestamp = new Date().valueOf();
