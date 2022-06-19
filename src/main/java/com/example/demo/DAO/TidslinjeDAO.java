@@ -24,7 +24,7 @@ public class TidslinjeDAO {
         //INIT DATA
         Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
         Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,true);
-        Tidslinje tidslinje3 = new Tidslinje(3,"gse",2655579696709L,3655579696709L,0,2,"ses",false,true,false);
+        Tidslinje tidslinje3 = new Tidslinje(3,"gse",1555637983792L,2655579696709L,0,2,"ses",false,true,false);
         Tidslinje tidslinje4 = new Tidslinje(4,"rr",2655579696709L,2655579696709L,0,2,"RestsWR",false,true,false);
         tidslinjer.add(tidslinje1);
         tidslinjer.add(tidslinje2);
