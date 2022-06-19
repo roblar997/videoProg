@@ -169,18 +169,18 @@ var timeLineModule = (function(){
 
                for (let key in res){
                    console.log(res[key].command)
-                   if(res[key].commmand == "ADD"){
+                   if(String(res[key].commmand) == "ADD"){
                         console.log(res[key].commmand)
-                       this.timeLines.push(res[key].timeline)
+                       this.timeLines.push(res[key].tidslinje)
                    }
                    else if(res[key].command == "CHANGE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
-                       this.timeLines.splice(index,1,res[key].timeline)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
+                       this.timeLines.splice(index,1,res[key].tidslinje)
                    }
                    else if(res[key].command == "REMOVE"){
                        console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
+                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].tidslinje.id})
                        this.timeLines.splice(index,1)
                    }
                    else {
