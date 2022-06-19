@@ -8,6 +8,7 @@ import com.example.demo.entities.InitFenwick;
 import com.example.demo.entities.Tidslinje;
 
 import com.example.demo.wrapper.InitFenwickTidslinjeFeatureWrapper;
+import com.example.demo.wrapper.tidslinjeCommandWrapper;
 import com.example.demo.wrapper.tidslinjeMethodWrapper;
 import com.example.demo.wrapper.timestampMethodWrapper;
 import com.example.demo.wrapperServices.WrapperService;
@@ -24,6 +25,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 
 @WebServlet(name = "videoServlet", value = "/videoServlet")
@@ -118,8 +120,9 @@ public class videoServlet extends HttpServlet {
                 wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
                 if(remoteMethod.equals("getChanges")){
-                    Type typeInfo = new TypeToken<List<Tidslinje>>() {}.getType();
-                    List<Tidslinje> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(wrapptimestamp.getTimestamp());
+                    Type typeInfo = new TypeToken<List<tidslinjeCommandWrapper>>() {}.getType();
+                    final Long timestampCopy = wrapptimestamp.getTimestamp();
+                    List<tidslinjeCommandWrapper> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(wrapptimestamp.getTimestamp()).stream().map((x)->WrapperService.assembletidslinjeCommandWrapper(x,timestampCopy)).collect(Collectors.toList());
                     String json = gson.toJson(tidslinjene, typeInfo);
                     out.println(json);
                     out.close();
