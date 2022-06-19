@@ -7,8 +7,9 @@ import java.util.Objects;
 public class tidslinjeCommandWrapper {
 
     public tidslinjeCommandWrapper(String command, Tidslinje tidslinje) {
+        this.command = command;
+        this.tidslinje = tidslinje;
     }
-
 
     private String  command;
 
