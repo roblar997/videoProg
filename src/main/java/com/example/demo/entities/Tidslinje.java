@@ -9,6 +9,22 @@ public class Tidslinje {
     private Long timestampChanged;
     private Integer start;
     private Integer end;
+    private String text;
+    private Boolean like;
+    private Boolean dislike;
+    private Boolean isDeleted;
+
+    public Tidslinje(String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
+        this.user = user;
+        this.timestampCreated = timestampCreated;
+        this.timestampChanged = timestampChanged;
+        this.start = start;
+        this.end = end;
+        this.text = text;
+        this.like = like;
+        this.dislike = dislike;
+        this.isDeleted = isDeleted;
+    }
 
     @Override
     public String toString() {
@@ -21,6 +37,7 @@ public class Tidslinje {
                 ", text='" + text + '\'' +
                 ", like=" + like +
                 ", dislike=" + dislike +
+                ", isDeleted=" + isDeleted +
                 '}';
     }
 
@@ -29,12 +46,12 @@ public class Tidslinje {
         if (this == o) return true;
         if (!(o instanceof Tidslinje)) return false;
         Tidslinje tidslinje = (Tidslinje) o;
-        return Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike);
+        return Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike) && Objects.equals(isDeleted, tidslinje.isDeleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, timestampCreated, timestampChanged, start, end, text, like, dislike);
+        return Objects.hash(user, timestampCreated, timestampChanged, start, end, text, like, dislike, isDeleted);
     }
 
     public String getUser() {
@@ -101,22 +118,11 @@ public class Tidslinje {
         this.dislike = dislike;
     }
 
-    private String text;
-    private Boolean like;
-    private Boolean dislike;
-
-
-    public Tidslinje(String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike) {
-        this.user = user;
-        this.timestampCreated = timestampCreated;
-        this.timestampChanged = timestampChanged;
-        this.start = start;
-        this.end = end;
-        this.text = text;
-        this.like = like;
-        this.dislike = dislike;
+    public Boolean getDeleted() {
+        return isDeleted;
     }
 
-
-
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
 }

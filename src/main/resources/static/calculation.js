@@ -260,6 +260,7 @@ var timeLineModule = (function(){
             html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
+            html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
             html += '<div style="background-color:white; color:white">f</div>'
         }
 
@@ -325,7 +326,8 @@ var timeLineModule = (function(){
                 end: $( "#slider-range" ).slider( "values", 1 ),
                 text:  $("#commentComment").val().trim(),
                 like: $("#likeYes").is(':checked'),
-                dislike: $("#dislikeYes").is(':checked')
+                dislike: $("#dislikeYes").is(':checked'),
+                isDeleted: false
 
             }
 
