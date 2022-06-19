@@ -166,21 +166,21 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "getChanges", "timestamp": timestamp}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
+                let result = JSON.parse(res)
+               for (let key in result){
 
-               for (let key in JSON.parse(res)){
-
-                   if(res[key].commmand == "ADD"){
-                        console.log(res[key].commmand)
-                       this.timeLines.push(res[key].timeline)
+                   if(result[key].commmand == "ADD"){
+                        console.log(result[key].commmand)
+                       this.timeLines.push(result[key].timeline)
                    }
-                   else if(res[key].command == "CHANGE"){
-                       console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
-                       this.timeLines.splice(index,1,res[key].timeline)
+                   else if(result[key].command == "CHANGE"){
+                       console.log(result[key].commmand)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == result[key].timeline.id})
+                       this.timeLines.splice(index,1,result[key].timeline)
                    }
-                   else if(res[key].command == "REMOVE"){
-                       console.log(res[key].commmand)
-                       let index = this.timeLines.findIndex((x)=>{return x.id == res[key].timeline.id})
+                   else if(result[key].command == "REMOVE"){
+                       console.log(result[key].commmand)
+                       let index = this.timeLines.findIndex((x)=>{return x.id == result[key].timeline.id})
                        this.timeLines.splice(index,1)
                    }
                    else {
