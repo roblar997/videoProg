@@ -45,10 +45,22 @@ public class TidslinjeDAO {
             return  tidslinje;
     }
 
-    public List<Tidslinje> getChanges(Long timestamp){
+    public List<Tidslinje> getLatestChangedOrAdded(Long timestamp){
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampChanged() > timestamp).collect(Collectors.toList());
+
+    }
+    public List<Tidslinje> getLatestChanged(Long timestamp){
+
+        //Get newest changes
+        return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
+
+    }
+    public List<Tidslinje> getLatestAdded(Long timestamp){
+
+        //Get newest changes
+        return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
 
     }
     public Command decideCommand(Tidslinje tidslinje, Long timestamp){
