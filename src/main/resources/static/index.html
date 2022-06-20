@@ -150,7 +150,7 @@
 <body>
 <main>
     <div class="container">
-    <center>
+    <div>
         <video id="vidControll" width="320" height="240" >
             <source id="video" src="./boat.mp4#t=1,4" type="video/mp4">
             Your browser does not support the video tag.
@@ -158,11 +158,11 @@
         <div id="slider-range" style="width:320px" ></div>
         <label for="percent">Percent(%)</label>
         <input type="number" id="percent" value="100"></input>
-        <button id ="play">play</button>
-        <button id ="pause">pause</button>
-    </center>
+        <button id ="play" class="btn btn-primary col-3">play</button>
+        <button id ="pause" class="btn btn-primary col-3">pause</button>
+    </div>
 
-    <center>
+    <div class="text-center">
         <p>
             <label for="amount">Current time range:</label>
             <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;" >
@@ -204,7 +204,7 @@
                 Don't know: <input type="radio" id="likeDislikeNo" name="commentLike"  checked><br>
             </div>
             <div class="row">
-                <button id="addTimeline" class="btn btn-primary">Comment timeline</button>
+                <button id="addTimeline" class="btn btn-primary col-3">Comment timeline</button>
 
             </div>//
             <div class="row">
@@ -212,19 +212,19 @@
                 <label for="featureNumber">Feature number</label> <br>
                 <input type="number" id="featureNumber" value="1"> <br>
                 <br>
-                <button id="addFeature" class="btn btn-primary">Add feature</button>
-                <button id="getFeatures" class="btn btn-primary">Extract features</button><br><br><br>
+                <button id="addFeature" class="btn btn-primary col-3">Add feature</button>
+                <button id="getFeatures" class="btn btn-primary col-3">Extract features</button><br><br><br>
                 <label for="features">Features:</label><br>
                 <div id="features"></div>
                 <label for="featuresToFind">Features to find (list seprated by "," , within the range given in slider ) </label> <br>
                 <input type="text" id="featuresToFind"> <br>
-                <button id="searchFeatures" class="btn btn-primary"> Search features </button><br><br>
+                <button id="searchFeatures" class="btn btn-primary col-3"> Search features </button><br><br>
 
                 <div id="rangeToFind"></div>
             </div>
 
         </section>
-    </center>
+    </div>
     </div>
 </main>
 
