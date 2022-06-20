@@ -230,7 +230,7 @@ var timeLineModule = (function(){
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
             let html = '';
             for (let key in obj) {
-                html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
+                html += '<div class="card bg-secondary text-dark mt-5" id='  + obj[key].id + '>';
 
 
                 html += '<div class="card-body">';
@@ -243,6 +243,7 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
                 html += '<button type="button" >Remove</button>';
+                html += '<button type="button">Change</button>';
                 html += '</div>'
                 html += '</div>'
             }
@@ -310,7 +311,7 @@ var timeLineModule = (function(){
         obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
         let html = '';
         for (let key in obj) {
-            html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
+            html += '<div class="card bg-secondary text-dark mt-5" id='  + obj[key].id + '>';
 
             html += '<div class="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
@@ -322,6 +323,7 @@ var timeLineModule = (function(){
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
             html += '<button type="button" >Remove</button>';
+            html += '<button type="button">Change</button>';
             html += '</div>'
             html += '</div>'
         }
