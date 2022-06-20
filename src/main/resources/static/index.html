@@ -157,7 +157,7 @@
         </video>
         <div id="slider-range" style="width:320px" ></div>
         <label for="percent">Percent(%)</label>
-        <input type="number" id="percent" value="100"></input>
+        <input  class="form-control input-sm" type="number" id="percent" value="100"></input>
         <button id ="play" class="btn btn-primary col-2">play</button>
         <button id ="pause" class="btn btn-primary col-2">pause</button>
     </div>
@@ -170,12 +170,12 @@
         <p>
             <label for="likes">Likes <i class="fa fa-thumbs-up" aria-hidden="true"> </i></label>
 
-            <input type="text" id="likes" readonly style="border:0; color:black; font-weight:bold;" >
+            <input  class="form-control input-sm" type="text" id="likes" readonly style="border:0; color:black; font-weight:bold;" >
         </p>
         <p>
             <label for="dislikes">Dislikes <i class="fa fa-thumbs-down" aria-hidden="true"> </i></label>
 
-            <input type="text" id="dislikes" readonly style="border:0; color:black; font-weight:bold;" >
+            <input  class="form-control input-sm" type="text" id="dislikes" readonly style="border:0; color:black; font-weight:bold;" >
         </p>
         <label for="comments">Comments:</label>
         <div id="comments" class="container"></div>
@@ -188,20 +188,20 @@
             <div class="row">
                 <br>
                 User:
-                <br> <input type="textarea" id="commentUser" placeholder=" user" /><br>
+                <br> <input  class="form-control input-sm" type="textarea" id="commentUser" placeholder=" user" /><br>
             </div>
             <div class="row">
                 <br>
                 Comment:
-                <br> <input type="textarea" id="commentComment" placeholder=" Comment" /><br>
+                <br> <input  class="form-control input-sm" type="textarea" id="commentComment" placeholder=" Comment" /><br>
             </div>
 
             <div class="row">
                 <br> Do I like this part of video?
                 <br>
-                Like: <input type="radio" id="likeYes" name="commentLike">  <br>
-                Dislike: <input type="radio" id="dislikeYes" name="commentLike" ><br>
-                Don't know: <input type="radio" id="likeDislikeNo" name="commentLike"  checked><br>
+                Like: <input  class="form-control input-sm" type="radio" id="likeYes" name="commentLike">  <br>
+                Dislike: <input  class="form-control input-sm" type="radio" id="dislikeYes" name="commentLike" ><br>
+                Don't know: <input  class="form-control input-sm" type="radio" id="likeDislikeNo" name="commentLike"  checked><br>
             </div>
             <div class="row">
                 <button id="addTimeline" class="btn btn-primary col-3">Comment timeline</button>
@@ -210,14 +210,14 @@
             <div class="row">
                 <br>
                 <label for="featureNumber">Feature number</label> <br>
-                <input type="number" id="featureNumber" value="1"> <br>
+                <input  class="form-control input-sm" type="number" id="featureNumber" value="1"> <br>
                 <br>
                 <button id="addFeature" class="btn btn-primary col-2">Add feature</button>
                 <button id="getFeatures" class="btn btn-primary col-2">Extract features</button><br><br><br>
                 <label for="features">Features:</label><br>
                 <div id="features"></div>
                 <label for="featuresToFind">Features to find (list seprated by "," , within the range given in slider ) </label> <br>
-                <input type="text" id="featuresToFind"> <br>
+                <input  class="form-control input-sm" type="text" id="featuresToFind"> <br>
                 <button id="searchFeatures" class="btn btn-primary col-2"> Search features </button><br><br>
 
                 <div id="rangeToFind"></div>
