@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.ejb.Stateless;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -34,6 +35,15 @@ public class TidslinjeDAO {
 
     public List<Tidslinje> getTidslinjer(){
         return this.tidslinjer;
+    }
+
+    public String removeTidsline(Integer id){
+       Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
+       if(tidslinjeOpt.isPresent()){
+           this.tidslinjer.remove(tidslinjeOpt.get());
+           return "OK";
+       }
+       return "NOTFOUND";
     }
     public Tidslinje addTidslinje(Tidslinje tidslinje){
             Integer id = 55;
