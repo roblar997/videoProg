@@ -230,7 +230,8 @@ var timeLineModule = (function(){
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
             let html = '';
             for (let key in obj) {
-                html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
+                html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
+
 
                 html += '<div class="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
@@ -309,7 +310,8 @@ var timeLineModule = (function(){
         obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
         let html = '';
         for (let key in obj) {
-            html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
+            html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
+
             html += '<div class="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';

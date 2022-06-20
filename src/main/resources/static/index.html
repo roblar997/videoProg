@@ -70,7 +70,7 @@
                     obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
                     let html = '';
                     for (let key in obj) {
-                        html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
+                        html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
 
                         html += '<div class="card-body">';
                         html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
@@ -115,7 +115,7 @@
                         obj=timeLineModule.filterListByTime(ui.values[ 0 ],ui.values[ 1 ],$("#percent").val()  );
                         let html = '';
                         for (let key in obj) {
-                            html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
+                            html += '<div class="card bg-primary text-dark mt-5" id='  + obj[key].id + '>';
 
                             html += '<div class="card-body">';
                             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
@@ -175,7 +175,7 @@
             <input type="text" id="dislikes" readonly style="border:0; color:black; font-weight:bold;" >
         </p>
         <label for="comments">Comments:</label>
-        <div id="comments"></div>
+        <div id="comments" class="container-fluid ml-5 mr-5"></div>
 
         <section id="kommentar">
 
