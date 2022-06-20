@@ -228,11 +228,11 @@ var timeLineModule = (function(){
             $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
             $("#comments").empty()
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
-            let html = '<div className="container">'
+            let html = '<div className="container" id=obj[key].id>'
 
             for (let key in obj) {
                 html += '<div className="card bg-light text-dark">';
-                html += '<button type="button" className="btn-close ui-corner-right" ></button>';
+                html += '<button type="button" >Remove</button>';
                 html += '<div className="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
                 html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -307,11 +307,11 @@ var timeLineModule = (function(){
         $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
         $("#comments").empty()
         obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
-        let html = '<div className="container">'
+        let html = '<div className="container" id=obj[key].id>'
 
         for (let key in obj) {
             html += '<div className="card bg-light text-dark">';
-            html += '<button type="button" className="btn-close ui-corner-right" ></button>';
+            html += '<button type="button" >Remove</button>';
             html += '<div className="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
