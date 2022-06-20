@@ -231,7 +231,7 @@ var timeLineModule = (function(){
             let html = '';
             for (let key in obj) {
                 html += '<div class="card bg-secondary text-dark mt-5" id='  + obj[key].id + '>';
-
+//
 
                 html += '<div class="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
