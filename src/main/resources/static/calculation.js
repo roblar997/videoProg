@@ -230,9 +230,9 @@ var timeLineModule = (function(){
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
             let html = '';
             for (let key in obj) {
-                html += '<div className="card bg-primary text-dark" id='  + obj[key].id + '>';
+                html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
 
-                html += '<div className="card-body">';
+                html += '<div class="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
                 html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
                 html += '<p>' +  " <strong>timestampCreated</strong>: " + obj[key].timestampCreated + '</p>';
@@ -309,8 +309,8 @@ var timeLineModule = (function(){
         obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
         let html = '';
         for (let key in obj) {
-            html += '<div className="card bg-primary text-dark" id='  + obj[key].id + '>';
-            html += '<div className="card-body">';
+            html += '<div class="card bg-primary text-dark" id='  + obj[key].id + '>';
+            html += '<div class="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
             html += '<p>' +  " <strong>timestampCreated</strong>: " + obj[key].timestampCreated + '</p>';
