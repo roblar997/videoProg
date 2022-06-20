@@ -37,6 +37,23 @@ public class TidslinjeDAO {
         return this.tidslinjer;
     }
 
+    public String changeTidsline(Tidslinje tidslinje, Integer id){
+        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
+        if(tidslinjeOpt.isPresent()){
+            Tidslinje preTidslinje = tidslinjeOpt.get();
+            preTidslinje.setDeleted(tidslinje.getDeleted());
+            preTidslinje.setDislike(tidslinje.getDislike());
+            preTidslinje.setEnd(tidslinje.getEnd());
+            preTidslinje.setStart(tidslinje.getStart());
+            preTidslinje.setText(tidslinje.getText());
+            preTidslinje.setUser(tidslinje.getUser());
+            preTidslinje.setTimestampChanged(tidslinje.getTimestampChanged());
+            preTidslinje.setTimestampCreated(tidslinje.getTimestampCreated());
+            preTidslinje.setLike(tidslinje.getLike());
+            return "OK";
+        }
+        return "NOTFOUND";
+    }
     public String removeTidsline(Integer id){
        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
        if(tidslinjeOpt.isPresent()){
