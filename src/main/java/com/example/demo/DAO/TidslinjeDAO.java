@@ -57,7 +57,7 @@ public class TidslinjeDAO {
     public String removeTidsline(Integer id){
        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
        if(tidslinjeOpt.isPresent()){
-           this.tidslinjer.remove(tidslinjeOpt.get());
+           tidslinjeOpt.get().setDeleted(true);
            return "OK";
        }
        return "NOTFOUND";
