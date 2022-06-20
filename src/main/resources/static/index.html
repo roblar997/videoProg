@@ -150,7 +150,7 @@
 <body>
 <main>
     <div class="container">
-    <center>
+    <div class="card">
         <video id="vidControll" width="320" height="240" >
             <source id="video" src="./boat.mp4#t=1,4" type="video/mp4">
             Your browser does not support the video tag.
@@ -160,9 +160,10 @@
         <input type="number" id="percent" value="100"></input>
         <button id ="play">play</button>
         <button id ="pause">pause</button>
-    </center>
+    </div>
 
-    <center>
+
+        <div class="card">
         <p>
             <label for="amount">Current time range:</label>
             <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;" >
@@ -177,6 +178,8 @@
 
             <input type="text" id="dislikes" readonly style="border:0; color:black; font-weight:bold;" >
         </p>
+      </div>
+        <div class="card">
         <label for="comments">Comments:</label>
         <div id="comments" class="container"></div>
 
@@ -224,6 +227,7 @@
             </div>
 
         </section>
+        </div>
     </center>
     </div>
 </main>
