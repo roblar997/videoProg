@@ -228,11 +228,10 @@ var timeLineModule = (function(){
             $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
             $("#comments").empty()
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
-            let html = '<div className="container" id=obj[key].id>'
-
+            let html = '';
             for (let key in obj) {
-                html += '<div className="card bg-light text-dark">';
-                html += '<button type="button" >Remove</button>';
+                html += '<div className="card bg-light text-dark" id=obj[key].id>';
+
                 html += '<div className="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
                 html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -242,10 +241,11 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
+                html += '<button type="button" >Remove</button>';
                 html += '</div>'
                 html += '</div>'
             }
-            html += '</div>'
+
             $(html).appendTo("#comments");
 
         }).promise();
@@ -307,11 +307,10 @@ var timeLineModule = (function(){
         $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
         $("#comments").empty()
         obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
-        let html = '<div className="container" id=obj[key].id>'
-
+        let html = '';
         for (let key in obj) {
-            html += '<div className="card bg-light text-dark">';
-            html += '<button type="button" >Remove</button>';
+            html += '<div className="card bg-light text-dark" id=obj[key].id>';
+
             html += '<div className="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -321,10 +320,11 @@ var timeLineModule = (function(){
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
+            html += '<button type="button" >Remove</button>';
             html += '</div>'
             html += '</div>'
         }
-        html += '</div>'
+
         $(html).appendTo("#comments");
     }
 
