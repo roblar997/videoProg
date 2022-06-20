@@ -160,6 +160,23 @@ var timeLineModule = (function(){
         }).promise();
 
     }
+
+    async function removePTimeLineById(id) {
+//
+        await $.post({
+            url: '/videoServlet',
+            data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id}),
+            contentType: "application/json; charset=utf-8"
+        }).done((res) => {
+
+            removeTimePLine(id);
+        }).promise();
+
+    }
+    function removeTimePLine(id){
+        let index = timeLines.findIndex((x)=>{return x.id == id})
+        timeLines.splice(index,1)
+    }
     async function getPChanges() {
         await $.post({
             url: '/videoServlet',
