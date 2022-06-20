@@ -194,8 +194,8 @@ var timeLineModule = (function(){
             $( "#dislikes" ).val(timeLineModule.countDisLikes( $( "#slider-range" ).slider( "values", 0 ), $( "#slider-range" ).slider( "values", 1 ),$("#percent").val() ) );
             $("#comments").empty()
             obj=timeLineModule.filterListByTime($( "#slider-range" ).slider( "values", 0 ) ,$( "#slider-range" ).slider( "values", 1 ),$("#percent").val() );
-            let html = '<div style="background-color:rgb(220,220,220); color:black;margin-bottom: 40px;">';
-
+            let html = '<div className="card">';
+            html += '<div className="card-body">';
             for (let key in obj) {
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
                 html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -207,8 +207,9 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
                 html += '<div style="background-color:white; color:white">f</div>'
             }
+            html += '</div>'
+            html += '</div>'
 
-            $(html).appendTo("#comments");
             $("#comments").css("background-color","white")
         }).promise();
 
