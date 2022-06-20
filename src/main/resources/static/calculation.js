@@ -276,7 +276,7 @@ var timeLineModule = (function(){
         let html = '<div className="container">'
 
         for (let key in obj) {
-            html = '<div className="card bg-light text-dark">';
+            html += '<div className="card bg-light text-dark">';
             html += '<div className="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
