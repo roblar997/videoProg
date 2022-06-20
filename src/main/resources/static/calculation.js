@@ -173,9 +173,26 @@ var timeLineModule = (function(){
         }).promise();
 
     }
+
+    async function changePTimeLineById(id,timeline) {
+//
+        await $.post({
+            url: '/videoServlet',
+            data: JSON.stringify({ "remoteMethod": "changeTimeline","timeline":timeline, "id": id}),
+            contentType: "application/json; charset=utf-8"
+        }).done((res) => {
+
+            changePLine(id,timeline);
+        }).promise();
+
+    }
     function removeTimePLine(id){
         let index = timeLines.findIndex((x)=>{return x.id == id})
         timeLines.splice(index,1)
+    }
+    function changePLine(id,tidslinje){
+        let index = timeLines.findIndex((x)=>{return x.id == id})
+        timeLines.splice(index,tidslinje)
     }
     async function getPChanges() {
         await $.post({
