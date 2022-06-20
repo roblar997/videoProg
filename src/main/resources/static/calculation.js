@@ -198,6 +198,7 @@ var timeLineModule = (function(){
 
             for (let key in obj) {
                 html += '<div className="card bg-light text-dark">';
+                html += '<button type="button" className="btn-close ui-corner-right" ></button>';
                 html += '<div className="card-body">';
                 html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
                 html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -207,7 +208,6 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                html += '<div style="background-color:white; color:white">f</div>'
                 html += '</div>'
                 html += '</div>'
             }
@@ -277,6 +277,7 @@ var timeLineModule = (function(){
 
         for (let key in obj) {
             html += '<div className="card bg-light text-dark">';
+            html += '<button type="button" className="btn-close ui-corner-right" ></button>';
             html += '<div className="card-body">';
             html += '<p>' +  " <strong>id</strong>: " + obj[key].id + '</p>';
             html += '<p>' +  " <strong>user</strong>: " + obj[key].user + '</p>';
@@ -286,7 +287,6 @@ var timeLineModule = (function(){
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-            html += '<div style="background-color:white; color:white">f</div>'
             html += '</div>'
             html += '</div>'
         }
