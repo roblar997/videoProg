@@ -81,8 +81,8 @@
                         html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                         html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                         html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                        html += '<button type="button" class="btn btn-danger col-1" ><div class="text-wrap">Remove</div></button>';
-                        html += '<button type="button" class="btn btn-warning col-1"><div class="text-wrap">Change</div><</button>';
+                        html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" ><div class="text-wrap">Remove</div></button>';
+                        html += '<button type="button" class="btn btn-warning col-1 m-1 p-1"><div class="text-wrap">Change</div><</button>';
                         html += '</div>'
                         html += '</div>'
                     }
@@ -127,8 +127,8 @@
                             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                            html += '<button type="button" class="btn btn-danger col-1" ><div class="text-wrap">Remove</div></button>';
-                            html += '<button type="button" class="btn btn-warning col-1"><div class="text-wrap">Change</div><</button>';
+                            html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" ><div class="text-wrap">Remove</div></button>';
+                            html += '<button type="button" class="btn btn-warning col-1 m-1 p-1"><div class="text-wrap">Change</div><</button>';
                             html += '</div>'
                             html += '</div>'//
                         }
@@ -158,9 +158,9 @@
         <div id="slider-range" style="width:320px" ></div>
         <label for="percent">Percent(%)</label>
         <input  class="form-control input-sm w-25" type="number" id="percent" value="100"></input>
-        <button id ="play" class="btn btn-success col-1">
+        <button id ="play" class="btn btn-success col-1 m-1 p-1">
             <div class="text-wrap">Play </div></button>
-        <button id ="pause" class="btn btn-warning col-1"><div class="text-wrap">Pause</div></button>
+        <button id ="pause" class="btn btn-warning col-1 m-1 p-1"><div class="text-wrap">Pause</div></button>
     </div>
 
     <div class="text-center">
@@ -204,7 +204,7 @@
                 </div>
                 </div>
             <div class="row">
-                <button id="addTimeline" class="btn btn-success col-1"><div class="text-wrap">Comment timeline</div></button>
+                <button id="addTimeline" class="btn btn-success col-1 m-1 p-1"><div class="text-wrap">Comment timeline</div></button>
 
             </div>//
             <div class="row">
@@ -212,13 +212,13 @@
                 <label for="featureNumber">Feature number</label> <br>
                 <input  class="form-control input-sm w-25" type="number" id="featureNumber" value="1"> <br>
                 <br>
-                <button id="addFeature" class="btn btn-secondary     col-1">Add feature</button>
-                <button id="getFeatures" class="btn btn-info col-1"><div class="text-wrap">Extract features</div></button>
+                <button id="addFeature" class="btn btn-secondary m-1 p-1    col-1">Add feature</button>
+                <button id="getFeatures" class="btn btn-info m-1 p-1 col-1"><div class="text-wrap">Extract features</div></button>
                 <label for="features">Features:</label><br>
                 <div id="features"></div>
                 <label for="featuresToFind">Features to find (list seprated by "," , within the range given in slider ) </label> <br>
                 <input  class="form-control input-sm w-25" type="text" id="featuresToFind"> <br>
-                <button id="searchFeatures" class="btn btn-info col-1"> <div class="text-wrap">
+                <button id="searchFeatures" class="btn btn-info m-1 p-1 col-1"> <div class="text-wrap">
                    Search features
                 </div></button><br><br>
 
