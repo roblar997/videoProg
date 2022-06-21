@@ -242,8 +242,8 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                html += '<button type="button" class="btn btn-primary" >Remove</button>';
-                html += '<button type="button" class="btn btn-secondary">Change</button>';
+                html += '<button type="button" class="btn btn-danger" >Remove</button>';
+                html += '<button type="button" class="btn btn-warning">Change</button>';
                 html += '</div>'
                 html += '</div>'
             }
@@ -322,8 +322,8 @@ var timeLineModule = (function(){
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-            html += '<button type="button" class="btn btn-primary" >Remove</button>';
-            html += '<button type="button" class="btn btn-secondary">Change</button>';
+            html += '<button type="button" class="btn btn-danger" >Remove</button>';
+            html += '<button type="button" class="btn btn-warning">Change</button>';
             html += '</div>'
             html += '</div>'
         }
