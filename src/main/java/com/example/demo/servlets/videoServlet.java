@@ -135,6 +135,24 @@ public class videoServlet extends HttpServlet {
                     return;
                 }
             }
+
+            Boolean istidslinjeMethodIdWrapper = true;
+            tidslinjeMethodIdWrapper tidslinjeMethodIdWrapper = null;
+            try{
+
+                tidslinjeMethodIdWrapper = gson.fromJson(string.toString(),tidslinjeMethodIdWrapper.class);
+
+            }
+            catch (Exception ex){
+                istidslinjeMethodIdWrapper = false;
+                out.println(ex.getMessage());
+            }
+
+            if(istidslinjeMethodIdWrapper){
+                out.println("CHANGE " + tidslinjeMethodIdWrapper.getId());
+                return;
+            }
+
             Boolean isTypemethodIdWrapper = true;
             methodIdWrapper methodidwrapper = null;
             try{
@@ -148,22 +166,6 @@ public class videoServlet extends HttpServlet {
             }
             if(isTypemethodIdWrapper){
                 out.println("REMOVE " + methodidwrapper.getId());
-                return;
-            }
-            Boolean istidslinjeMethodIdWrapper = true;
-            tidslinjeMethodIdWrapper tidslinjeMethodIdWrapper = null;
-            try{
-
-                tidslinjeMethodIdWrapper = gson.fromJson(string.toString(),tidslinjeMethodIdWrapper.class);
-
-            }
-            catch (Exception ex){
-                isTypemethodIdWrapper = false;
-                out.println(ex.getMessage());
-            }
-
-            if(istidslinjeMethodIdWrapper){
-                out.println("CHANGE " + tidslinjeMethodIdWrapper.getId());
                 return;
             }
 
