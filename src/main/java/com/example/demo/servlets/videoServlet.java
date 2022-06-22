@@ -7,10 +7,7 @@ import com.example.demo.entities.Feature;
 import com.example.demo.entities.InitFenwick;
 import com.example.demo.entities.Tidslinje;
 
-import com.example.demo.wrapper.InitFenwickTidslinjeFeatureWrapper;
-import com.example.demo.wrapper.tidslinjeCommandWrapper;
-import com.example.demo.wrapper.tidslinjeMethodWrapper;
-import com.example.demo.wrapper.timestampMethodWrapper;
+import com.example.demo.wrapper.*;
 import com.example.demo.wrapperServices.WrapperService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -115,9 +112,18 @@ public class videoServlet extends HttpServlet {
             }
             Boolean isTypetimestampMethodWrapper = true;
             timestampMethodWrapper wrapptimestamp = null;
+            response.setContentType("application/json");
+
             try{
-                response.setContentType("application/json");
+
                 wrapptimestamp = gson.fromJson(string.toString(),timestampMethodWrapper.class);
+
+            }
+            catch (Exception ex){
+                isTypetimestampMethodWrapper = false;
+                out.println(ex.getMessage());
+            }
+            if(isTypetimestampMethodWrapper){
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
                 if(remoteMethod.equals("getChanges")){
                     Type typeInfo = new TypeToken<List<tidslinjeCommandWrapper>>() {}.getType();
@@ -128,15 +134,38 @@ public class videoServlet extends HttpServlet {
                     out.close();
                     return;
                 }
+            }
+            Boolean isTypemethodIdWrapper = true;
+            methodIdWrapper methodidwrapper = null;
+            try{
+
+                methodidwrapper = gson.fromJson(string.toString(),methodIdWrapper.class);
 
             }
             catch (Exception ex){
-                isTypetimestampMethodWrapper = false;
+                isTypemethodIdWrapper = false;
+                out.println(ex.getMessage());
+            }
+            if(isTypemethodIdWrapper){
+                out.println("REMOVE " + methodidwrapper.getId());
+                return;
+            }
+            Boolean istidslinjeMethodIdWrapper = true;
+            tidslinjeMethodIdWrapper tidslinjeMethodIdWrapper = null;
+            try{
+
+                tidslinjeMethodIdWrapper = gson.fromJson(string.toString(),tidslinjeMethodIdWrapper.class);
+
+            }
+            catch (Exception ex){
+                isTypemethodIdWrapper = false;
                 out.println(ex.getMessage());
             }
 
-
-
+            if(istidslinjeMethodIdWrapper){
+                out.println("CHANGE " + tidslinjeMethodIdWrapper.getId());
+                return;
+            }
 
         }
         else {
