@@ -25,11 +25,11 @@
             });
             $("#comments").click((e)=>{
                 console.log("Inside comments")
-                console.log(e.target.NodeName)
+                console.log(e.target.nodeName)
                 console.log(e.target.innerText)
                 //Event delegation to avoid memory leaks by adding and removing
                 // a lot of event listeners.
-                if(e.target && e.target.nodeName == "button") {
+                if(e.target && e.target.nodeName == "BUTTON") {
                     console.log("Is a button")
                  if(e.target.innerText == "Change"){
                      let id = e.target.parentNode.parentNode.id;
