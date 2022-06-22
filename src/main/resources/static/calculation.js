@@ -398,12 +398,12 @@ var timeLineModule = (function(){
 
         },
         removeTimeLineById : function(id) {
-            removePTimeLineById(id)
+            removePTimeLineById(id).then()
 
         },
 
         changeTimeLineById : function(id,timeline){
-            changePTimeLineById(id,timeline)
+            changePTimeLineById(id,timeline).then()
         },
         initFeatureTree: function(nmbFeatures,size){
             initPFeatureTree(nmbFeatures,size)
