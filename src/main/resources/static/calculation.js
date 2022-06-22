@@ -268,6 +268,7 @@ var timeLineModule = (function(){
         return this.fenwFeatureTree.queryFeatures(l,r);
     }
 
+
     function countPLikes(start,end,percent){
         let timeLinesFilteredTime = filterPListByTime(start,end,percent);
         return timeLinesFilteredTime.reduce((nmbLikes,timeline)=>{
@@ -300,6 +301,10 @@ var timeLineModule = (function(){
         })
     }
 
+    function getPTimeLineById(id){
+        let timeline = timeLines.find((x)=>{return x.id == id});
+        return timeline
+    }
 
     function addPTimeLine(timeline){
         timeLines.push(timeline);
@@ -396,6 +401,9 @@ var timeLineModule = (function(){
 
             return tidslinjeData;
 
+        },
+        getTimeLineById : function(id){
+            return getPTimeLineById(id)
         },
         removeTimeLineById : function(id) {
             removePTimeLineById(id).then()

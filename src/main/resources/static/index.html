@@ -34,7 +34,7 @@
                  if(e.target.innerText == "Change"){
                      let id = e.target.parentNode.parentNode.id;
                      console.log("CHANGE" + id)
-                     timeLineModule.changeTimeLineById(id)
+                     timeLineModule.changeTimeLineById(id,timeLineModule.getTimeLineById(id))
 
                  }
                  else if(e.target.innerText == "Remove"){
