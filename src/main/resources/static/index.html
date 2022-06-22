@@ -34,11 +34,13 @@
                  if(e.target.innerText == "Change"){
                      let id = e.target.parentNode.parentNode.id;
                      console.log("CHANGE" + id)
+                     timeLineModule.changeTimeLineById(id)
 
                  }
                  else if(e.target.innerText == "Remove"){
                      let id = e.target.parentNode.parentNode.id;
                      console.log("REMOVE" + id)
+                     timeLineModule.removeTimeLineById(id)
                  }
                 }
             });
