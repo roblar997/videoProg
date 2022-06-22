@@ -141,6 +141,7 @@ public class videoServlet extends HttpServlet {
             try{
 
                 tidslinjeMethodIdWrapper = gson.fromJson(string.toString(),tidslinjeMethodIdWrapper.class);
+                if(tidslinjeMethodIdWrapper.getTimeline() == null) throw new Exception("Null timeline");
 
             }
             catch (Exception ex){
