@@ -106,7 +106,6 @@ public class videoServlet extends HttpServlet {
 
                 }
                 catch (Exception ex){
-                    out.println(ex.getMessage());
                     return;
                 }
             }
@@ -121,7 +120,7 @@ public class videoServlet extends HttpServlet {
             }
             catch (Exception ex){
                 isTypetimestampMethodWrapper = false;
-                out.println(ex.getMessage());
+
             }
             if(isTypetimestampMethodWrapper){
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
@@ -146,7 +145,7 @@ public class videoServlet extends HttpServlet {
             }
             catch (Exception ex){
                 istidslinjeMethodIdWrapper = false;
-                out.println(ex.getMessage());
+
             }
 
             if(istidslinjeMethodIdWrapper){
@@ -163,7 +162,7 @@ public class videoServlet extends HttpServlet {
             }
             catch (Exception ex){
                 isTypemethodIdWrapper = false;
-                out.println(ex.getMessage());
+
             }
             if(isTypemethodIdWrapper){
                 out.println("REMOVE " + methodidwrapper.getId());
