@@ -23,6 +23,22 @@
             $("#addFeature").click((e) => {
                 timeLineModule.extractFeatureAndUpdate()
             });
+            $("#kommentar").click((e)=>{
+                //Event delegation to avoid memory leaks by adding and removing
+                // a lot of event listeners.
+                if(e.target && e.target.nodeName == "button") {
+                 if(e.target.innerText == "Change"){
+                     let id = e.target.parentNode.parentNode.id;
+                     console.log("CHANGE" + id)
+
+                 }
+                 else if(e.target.innerText == "Remove"){
+                     let id = e.target.parentNode.parentNode.id;
+                     console.log("REMOVE" + id)
+                 }
+                }
+            });
+
             $("#searchFeatures").click((e) => {
                 let res = timeLineModule.rangeSearch()
                 $("#rangeToFind").empty()
@@ -81,8 +97,8 @@
                         html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                         html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                         html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                        html += '<button type="button" class="btn btn-warning col-1 m-1 p-1"><div class="text-wrap">Change</div></button>';
-                        html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" ><div class="text-wrap">Remove</div></button>';
+                        html += '<button type="button" class="btn btn-warning col-1 m-1 p-1">Change</button>';
+                        html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
                         html += '</div>'
                         html += '</div>'
                     }
@@ -127,11 +143,12 @@
                             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                            html += '<button type="button" class="btn btn-warning col-1 m-1 p-1"><div class="text-wrap">Change</div></button>';
-                            html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" ><div class="text-wrap">Remove</div></button>';
+                            html += '<button type="button" class="btn btn-warning col-1 m-1 p-1">Change</button>';
+                            html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
 
                             html += '</div>'
                             html += '</div>'
+
                         }
 
                         $(html).appendTo("#comments");
