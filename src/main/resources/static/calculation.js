@@ -242,7 +242,7 @@ var timeLineModule = (function(){
                 html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
                 html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-                html += '<button type="button" class="btn btn-warning col-1 m-1 p-1">Change</button>';
+                html += '<button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-warning col-1 m-1 p-1">Change</button>';
                 html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
                 html += '</div>'
                 html += '</div>'
@@ -327,7 +327,7 @@ var timeLineModule = (function(){
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
             html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
-            html += '<button type="button" class="btn btn-warning col-1 m-1 p-1">Change</button>';
+            html += '<button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-warning col-1 m-1 p-1">Change</button>';
             html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
             html += '</div>'
             html += '</div>'
