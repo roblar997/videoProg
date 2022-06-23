@@ -37,7 +37,20 @@
                  if(e.target.innerText == "Change"){
                      let id = e.target.parentNode.parentNode.id;
                      console.log("CHANGE" + id)
-                     timeLineModule.changeTimeLineById(id,timeLineModule.getTimeLineById(id))
+
+                     let timeline = timeLineModule.getTimeLineById(id)
+                     $("#commentCommentChange").val(timeline.text)
+                     $("#commentUserChange").val(timeline.user)
+                     if(timeline.like){
+                         $("#likeYesChange").prop('checked',true);
+                     }
+                     else if(timeline.dislike){
+                         $("#dislikeYesChange").prop('checked',true);
+                     }
+                     else{
+                         $("#likeDislikeNoChange").prop('checked',true);
+                     }
+                     timeLineModule.changeTimeLineById(id,timeline)
 
                  }
                  else if(e.target.innerText == "Remove"){
