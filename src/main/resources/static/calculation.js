@@ -314,9 +314,9 @@ var timeLineModule = (function(){
         timeline.id   = idToChange
         timeline.text = $("#commentCommentChange").val()
         timeline.user = $("#commentUserChange").val()
-        timeline.like = $("#likeYesChange").is(':checked')
-        timeline.dislike =  $("#dislikeYesChange").is(':checked')
-        timeline.timestampChanged = new Date().valueOf()
+        //timeline.like = $("#likeYesChange").is(':checked')
+        //timeline.dislike =  $("#dislikeYesChange").is(':checked')
+        //timeline.timestampChanged = new Date().valueOf()
         return timeline;
     }
     function addPTimeLine(timeline){
