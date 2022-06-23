@@ -402,6 +402,7 @@ var timeLineModule = (function(){
             return tidslinjeData;
 
         },
+        
         getTimeLineById : function(id){
             return getPTimeLineById(id)
         },
