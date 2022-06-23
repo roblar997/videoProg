@@ -41,7 +41,7 @@ public class TidslinjeDAO {
         //tidslinjer.add(tidslinje4);
    // }
 
-    public List<Tidslinje> getTidslinjer(String dbToUse){
+    public List<Tidslinje> getTidslinjer(){
        // EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
         String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
