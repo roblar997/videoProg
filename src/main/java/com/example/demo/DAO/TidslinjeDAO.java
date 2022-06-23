@@ -94,7 +94,7 @@ public class TidslinjeDAO {
            // EntityTransaction tx = em.getTransaction();
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        String sql = "INSERT INTO \"schemaTest\".\"Tidslinje\" (user,timestampcreated,timestampchanged,start,end,text,like,dislike,isdeleted) VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO \"schemaTest\".\"Tidslinje\" (\"user\",\"timestampcreated\",\"timestampchanged\",\"start\",\"end\",\"text\",\"like\",\"dislike\",\"isdeleted\") VALUES(?,?,?,?,?,?,?,?,?)";
 
         db.update(con -> {
             PreparedStatement query = con.prepareStatement(sql, new String[]{"id"});
