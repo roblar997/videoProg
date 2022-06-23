@@ -4,10 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.io.Serializable;
 import java.util.Objects;
 //@Entity
 //@Table(name="tidslinje", schema = "schemaTest")
-public class Tidslinje {
+public class Tidslinje implements Serializable {
 
    // @Id
     private Integer id;
@@ -33,7 +34,17 @@ public class Tidslinje {
         this.dislike = dislike;
         this.isDeleted = isDeleted;
     }
-
+    public Tidslinje(String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
+        this.user = user;
+        this.timestampCreated = timestampCreated;
+        this.timestampChanged = timestampChanged;
+        this.start = start;
+        this.end = end;
+        this.text = text;
+        this.like = like;
+        this.dislike = dislike;
+        this.isDeleted = isDeleted;
+    }
     public Tidslinje() {
 
     }
