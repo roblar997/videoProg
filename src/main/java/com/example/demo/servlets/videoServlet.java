@@ -100,8 +100,7 @@ public class videoServlet extends HttpServlet {
                         Type typeInfo = new TypeToken<Tidslinje>() {}.getType();
                         String json = gson.toJson(toReturn, typeInfo);
                         out.println(json);
-                        out.close();
-                        return;
+
                     }
 
                 }
