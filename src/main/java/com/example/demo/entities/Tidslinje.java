@@ -34,6 +34,10 @@ public class Tidslinje {
         this.isDeleted = isDeleted;
     }
 
+    public Tidslinje() {
+
+    }
+
     @Override
     public String toString() {
         return "Tidslinje{" +
