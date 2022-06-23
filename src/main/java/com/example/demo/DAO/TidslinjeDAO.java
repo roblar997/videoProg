@@ -2,6 +2,9 @@ package com.example.demo.DAO;
 
 import com.example.demo.entities.Tidslinje;
 import com.example.demo.wrapper.tidslinjeCommandWrapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Stateless;
@@ -16,38 +19,43 @@ import java.util.stream.Collectors;
 @Stateless
 public class TidslinjeDAO {
 
-    private List<Tidslinje> tidslinjer;
+    //private List<Tidslinje> tidslinjer;
+
+    @Autowired
+    private JdbcTemplate db;
 
     private EntityManagerFactory emf;
 
 
-    public  TidslinjeDAO(){
-        this.tidslinjer = new LinkedList<Tidslinje>();
+    //public  TidslinjeDAO(){
+     //   this.tidslinjer = new LinkedList<Tidslinje>();
        // this.emf = Persistence.createEntityManagerFactory("schemaTest");
         //INIT DATA
-        Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
-        Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,true);
-        Tidslinje tidslinje3 = new Tidslinje(3,"gse",1555637983792L,2655579696709L,0,2,"ses",false,true,false);
-        Tidslinje tidslinje4 = new Tidslinje(4,"rr",2655579696709L,2655579696709L,0,2,"RestsWR",false,true,false);
-        tidslinjer.add(tidslinje1);
-        tidslinjer.add(tidslinje2);
-        tidslinjer.add(tidslinje3);
-        tidslinjer.add(tidslinje4);
-    }
+       // Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
+       // Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,true);
+       // Tidslinje tidslinje3 = new Tidslinje(3,"gse",1555637983792L,2655579696709L,0,2,"ses",false,true,false);
+       // Tidslinje tidslinje4 = new Tidslinje(4,"rr",2655579696709L,2655579696709L,0,2,"RestsWR",false,true,false);
+       // tidslinjer.add(tidslinje1);
+        //tidslinjer.add(tidslinje2);
+        //tidslinjer.add(tidslinje3);
+        //tidslinjer.add(tidslinje4);
+   // }
 
-    public List<Tidslinje> getTidslinjer(){
+    public List<Tidslinje> getTidslinjer(String dbToUse){
        // EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
-
-        return this.tidslinjer;
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
+        return tidslinjer;
     }
 
     public String changeTidsline(Tidslinje tidslinje, Integer id){
 
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
-
-        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
+        Optional<Tidslinje> tidslinjeOpt = tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
         if(tidslinjeOpt.isPresent()){
             Tidslinje preTidslinje = tidslinjeOpt.get();
             preTidslinje.setDeleted(tidslinje.getDeleted());
@@ -67,7 +75,10 @@ public class TidslinjeDAO {
 
         //EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
-       Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
+        //
+       String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+       List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
+       Optional<Tidslinje> tidslinjeOpt = tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
        if(tidslinjeOpt.isPresent()){
            tidslinjeOpt.get().setDeleted(true);
            return "OK";
@@ -90,6 +101,8 @@ public class TidslinjeDAO {
         //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer.stream().filter(x-> x.getTimestampChanged() > timestamp).collect(Collectors.toList());
 
     }
@@ -97,7 +110,8 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
-
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
 
@@ -107,7 +121,8 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
       //  EntityTransaction tx = em.getTransaction();
-
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
 
