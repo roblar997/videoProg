@@ -27,8 +27,8 @@
                 timeLineModule.extractFeatureAndUpdate()
             });
             $("#changeButton").click((e) => {
-                let timeline = timeLineModule.extractChangedTimeline()
-                //timeLineModule.changeTimeLineById(timeline.id,timeline)
+                let res = timeLineModule.extractChangedTimeline()
+                timeLineModule.changeTimeLineById(res.id,res)
             });
 
 
