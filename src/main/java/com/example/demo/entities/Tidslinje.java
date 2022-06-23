@@ -5,11 +5,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Objects;
-@Entity
-@Table(schema = "schemaTest")
+//@Entity
+//@Table(name="tidslinje", schema = "schemaTest")
 public class Tidslinje {
 
-    @Id
+   // @Id
     private Integer id;
     private String user;
     private Long timestampCreated;
