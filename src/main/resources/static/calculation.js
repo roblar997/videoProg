@@ -319,7 +319,7 @@ var timeLineModule = (function(){
         timeline.dislike =  $("#dislikeYesChange").is(':checked')
         timeline.timestampChanged = new Date().valueOf()
         console.log(timeline)
-        //return timeline;
+        return timeline;
     }
     function addPTimeLine(timeline){
         timeLines.push(timeline);
@@ -418,9 +418,9 @@ var timeLineModule = (function(){
 
         },//
         extractChangedTimeline: function(){
-            //return extractChangedPTimeline()
+            return extractChangedPTimeline()
 
-            extractChangedPTimeline()
+
         },
 
         getTimeLineById : function(id){
