@@ -98,16 +98,15 @@ public class TidslinjeDAO {
 
         db.update(con -> {
             PreparedStatement query = con.prepareStatement(sql, new String[]{"id"});
-            query.setInt(1, 123 );
-            query.setString(2, tidslinje.getUser() );
-            query.setObject(3, tidslinje.getTimestampCreated(), java.sql.Types.BIGINT);
-            query. setObject(4, tidslinje.getTimestampChanged(), java.sql.Types.BIGINT);
-            query.setInt(5, tidslinje.getStart());
-            query.setInt(6,tidslinje.getEnd());
-            query.setString(7,tidslinje.getText());
-            query.setBoolean(8,tidslinje.getLike());
-            query.setBoolean(9 ,tidslinje.getDislike());
-            query.setBoolean(10 ,tidslinje.getDeleted());
+            query.setString(1, tidslinje.getUser() );
+            query.setObject(2, tidslinje.getTimestampCreated(), java.sql.Types.BIGINT);
+            query. setObject(3, tidslinje.getTimestampChanged(), java.sql.Types.BIGINT);
+            query.setInt(4, tidslinje.getStart());
+            query.setInt(5,tidslinje.getEnd());
+            query.setString(6,tidslinje.getText());
+            query.setBoolean(7,tidslinje.getLike());
+            query.setBoolean(8 ,tidslinje.getDislike());
+            query.setBoolean(9 ,tidslinje.getDeleted());
             return query;
         },keyHolder);
 

@@ -106,6 +106,7 @@ public class videoServlet extends HttpServlet {
 
                 }
                 catch (Exception ex){
+                    out.println(ex.getMessage());
                     return;
                 }
             }
