@@ -318,7 +318,6 @@ var timeLineModule = (function(){
         timeline.like = $("#likeYesChange").is(':checked')
         timeline.dislike =  $("#dislikeYesChange").is(':checked')
         timeline.timestampChanged = new Date().valueOf()
-        console.log(timeline)
         return timeline;
     }
     function addPTimeLine(timeline){
