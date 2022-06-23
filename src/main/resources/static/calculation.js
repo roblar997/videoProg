@@ -306,6 +306,19 @@ var timeLineModule = (function(){
         return timeline
     }
 
+    function extractChangedPTimeline(){
+        let idToChange = $("#commentIdChange")
+        //Deep copying, because we dont wanna change before server says its ok
+        let timeline = JSON.parse(JSON.stringify(timeLineModule.getTimeLineById(idToChange)))
+
+        timeline.id   = idToChange
+        timeline.text = $("#commentCommentChange").val()
+        timeline.user = $("#commentUserChange").val()
+        timeline.like = $("#likeYesChange").is(':checked')
+        timeline.dislike =  $("#dislikeYesChange").is(':checked')
+        timeline.timestampChanged = new Date().valueOf()
+        return timeline;
+    }
     function addPTimeLine(timeline){
         timeLines.push(timeline);
         $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
@@ -402,7 +415,12 @@ var timeLineModule = (function(){
             return tidslinjeData;
 
         },
-        
+        extractChangedTimeline: function(){
+            return extractChangedPTimeline()
+
+
+        },
+
         getTimeLineById : function(id){
             return getPTimeLineById(id)
         },
