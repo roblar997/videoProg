@@ -99,8 +99,8 @@ public class TidslinjeDAO {
         db.update(con -> {
             PreparedStatement query = con.prepareStatement(sql, new String[]{"id"});
             query.setString(1, tidslinje.getUser() );
-            query.setLong(   2, tidslinje.getTimestampCreated());
-            query.setLong(3, tidslinje.getTimestampChanged());
+            query.setLong(   2, 1234);
+            query.setLong(3, 1234);
             query.setInt(4, tidslinje.getStart());
             query.setInt(5,tidslinje.getEnd());
             query.setString(6,tidslinje.getText());

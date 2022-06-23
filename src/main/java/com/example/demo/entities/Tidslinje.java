@@ -34,17 +34,7 @@ public class Tidslinje implements Serializable {
         this.dislike = dislike;
         this.isDeleted = isDeleted;
     }
-    public Tidslinje(String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
-        this.user = user;
-        this.timestampCreated = timestampCreated;
-        this.timestampChanged = timestampChanged;
-        this.start = start;
-        this.end = end;
-        this.text = text;
-        this.like = like;
-        this.dislike = dislike;
-        this.isDeleted = isDeleted;
-    }
+
     public Tidslinje() {
 
     }
