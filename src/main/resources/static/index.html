@@ -26,7 +26,7 @@
             $( "#dislikes" ).val( "0");
             $("#addFeature").click((e) => {
                 timeLineModule.extractFeatureAndUpdate()
-                timeLineModule.getChanges()
+
             });
             $("#changeButton").click((e) => {
                 let res = timeLineModule.extractChangedTimeline()
@@ -99,6 +99,7 @@
                 $("#addTimeline").click((e) => {
                     let timelineToAdd = timeLineModule.extractTidslinje();
                     timeLineModule.sendTimeLine(timelineToAdd);
+                    timeLineModule.getChanges()
 
                 });
                 $( "#pause" ).click(function(){
