@@ -36,16 +36,16 @@ public class TidslinjeDAO {
     }
 
     public List<Tidslinje> getTidslinjer(){
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+       // EntityManager em = emf.createEntityManager();
+       // EntityTransaction tx = em.getTransaction();
 
         return this.tidslinjer;
     }
 
     public String changeTidsline(Tidslinje tidslinje, Integer id){
 
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+       // EntityManager em = emf.createEntityManager();
+        //EntityTransaction tx = em.getTransaction();
 
         Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
         if(tidslinjeOpt.isPresent()){
@@ -65,8 +65,8 @@ public class TidslinjeDAO {
     }
     public String removeTidsline(Integer id){
 
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+        //EntityManager em = emf.createEntityManager();
+       // EntityTransaction tx = em.getTransaction();
        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
        if(tidslinjeOpt.isPresent()){
            tidslinjeOpt.get().setDeleted(true);
@@ -76,8 +76,8 @@ public class TidslinjeDAO {
     }
     public Tidslinje addTidslinje(Tidslinje tidslinje){
 
-            EntityManager em = emf.createEntityManager();
-            EntityTransaction tx = em.getTransaction();
+           // EntityManager em = emf.createEntityManager();
+           // EntityTransaction tx = em.getTransaction();
 
             Integer id = 55;
             tidslinje.setId(id);
@@ -86,8 +86,8 @@ public class TidslinjeDAO {
 
     public List<Tidslinje> getLatestChangedOrAdded(Long timestamp){
 
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+        //EntityManager em = emf.createEntityManager();
+        //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampChanged() > timestamp).collect(Collectors.toList());
@@ -95,8 +95,8 @@ public class TidslinjeDAO {
     }
     public List<Tidslinje> getLatestChanged(Long timestamp){
 
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+       // EntityManager em = emf.createEntityManager();
+        //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
@@ -105,8 +105,8 @@ public class TidslinjeDAO {
 
     public List<Tidslinje> getLatestAdded(Long timestamp){
 
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+       // EntityManager em = emf.createEntityManager();
+      //  EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
