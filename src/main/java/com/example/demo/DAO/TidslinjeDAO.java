@@ -23,7 +23,7 @@ public class TidslinjeDAO {
 
     public  TidslinjeDAO(){
         this.tidslinjer = new LinkedList<Tidslinje>();
-        this.emf = Persistence.createEntityManagerFactory("schemaTest");
+       // this.emf = Persistence.createEntityManagerFactory("schemaTest");
         //INIT DATA
         Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
         Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,true);
