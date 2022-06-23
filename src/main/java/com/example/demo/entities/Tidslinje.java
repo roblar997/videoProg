@@ -1,10 +1,15 @@
 package com.example.demo.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Objects;
-
+@Entity
+@Table(schema = "schemaTest")
 public class Tidslinje {
 
+    @Id
     private Integer id;
     private String user;
     private Long timestampCreated;
