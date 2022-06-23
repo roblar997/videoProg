@@ -106,7 +106,7 @@ public class TidslinjeDAO {
             query.setString(6,tidslinje.getText());
             query.setBoolean(7,tidslinje.getLike());
             query.setBoolean(8 ,tidslinje.getDislike());
-            query.setBoolean(9 ,tidslinje.getDeleted());
+            query.setBoolean(9 ,false);
             return query;
         },keyHolder);
 
