@@ -308,16 +308,17 @@ var timeLineModule = (function(){
 
     function extractChangedPTimeline() {
         let idToChange = $("#commentIdChange").val()
-        console.log(idToChange)
+
         //Deep copying, because we dont wanna change before server says its ok
         let timeline = JSON.parse(JSON.stringify(timeLineModule.getTimeLineById(idToChange)))
 
-        //timeline.id   = idToChange
-        //timeline.text = $("#commentCommentChange").val()
-        //timeline.user = $("#commentUserChange").val()
-        //timeline.like = $("#likeYesChange").is(':checked')
-        //timeline.dislike =  $("#dislikeYesChange").is(':checked')
-        //timeline.timestampChanged = new Date().valueOf()
+        timeline.id   = idToChange
+        timeline.text = $("#commentCommentChange").val()
+        timeline.user = $("#commentUserChange").val()
+        timeline.like = $("#likeYesChange").is(':checked')
+        timeline.dislike =  $("#dislikeYesChange").is(':checked')
+        timeline.timestampChanged = new Date().valueOf()
+        console.log(timeline)
         //return timeline;
     }
     function addPTimeLine(timeline){
