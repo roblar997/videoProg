@@ -414,7 +414,7 @@ var timeLineModule = (function(){
 
             return tidslinjeData;
 
-        },
+        },//
         extractChangedTimeline: function(){
             return extractChangedPTimeline()
 
