@@ -307,7 +307,7 @@ var timeLineModule = (function(){
     }
 
     function extractChangedPTimeline (){
-        let idToChange = $("#commentIdChange")
+        let idToChange = $("#commentIdChange").val()
         //Deep copying, because we dont wanna change before server says its ok
         let timeline = JSON.parse(JSON.stringify(timeLineModule.getTimeLineById(idToChange)))
 
