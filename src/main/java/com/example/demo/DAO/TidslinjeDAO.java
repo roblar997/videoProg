@@ -5,6 +5,10 @@ import com.example.demo.wrapper.tidslinjeCommandWrapper;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -16,12 +20,12 @@ import java.util.stream.Collectors;
 public class TidslinjeDAO {
 
     private List<Tidslinje> tidslinjer;
-
+    private EntityManagerFactory emf;
 
 
     public  TidslinjeDAO(){
         this.tidslinjer = new LinkedList<Tidslinje>();
-
+        this.emf = Persistence.createEntityManagerFactory("schemaTest");
         //INIT DATA
         Tidslinje tidslinje1 = new Tidslinje(1,"ARE",2655579696709L,2655579696709L,0,2,"RWR",false,true,false);
         Tidslinje tidslinje2 = new Tidslinje(2,"rr",2655579696709L,2655579696709L,0,2,"see",false,true,true);
@@ -34,10 +38,17 @@ public class TidslinjeDAO {
     }
 
     public List<Tidslinje> getTidslinjer(){
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
         return this.tidslinjer;
     }
 
     public String changeTidsline(Tidslinje tidslinje, Integer id){
+
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
         Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
         if(tidslinjeOpt.isPresent()){
             Tidslinje preTidslinje = tidslinjeOpt.get();
@@ -55,6 +66,9 @@ public class TidslinjeDAO {
         return "NOTFOUND";
     }
     public String removeTidsline(Integer id){
+
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
        Optional<Tidslinje> tidslinjeOpt = this.tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
        if(tidslinjeOpt.isPresent()){
            tidslinjeOpt.get().setDeleted(true);
@@ -63,6 +77,10 @@ public class TidslinjeDAO {
        return "NOTFOUND";
     }
     public Tidslinje addTidslinje(Tidslinje tidslinje){
+
+            EntityManager em = emf.createEntityManager();
+            EntityTransaction tx = em.getTransaction();
+
             Integer id = 55;
             tidslinje.setId(id);
             return  tidslinje;
@@ -70,11 +88,17 @@ public class TidslinjeDAO {
 
     public List<Tidslinje> getLatestChangedOrAdded(Long timestamp){
 
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampChanged() > timestamp).collect(Collectors.toList());
 
     }
     public List<Tidslinje> getLatestChanged(Long timestamp){
+
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
@@ -82,6 +106,9 @@ public class TidslinjeDAO {
     }
 
     public List<Tidslinje> getLatestAdded(Long timestamp){
+
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
         return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
