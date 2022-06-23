@@ -5,10 +5,13 @@ import com.example.demo.wrapper.tidslinjeCommandWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
+import java.sql.PreparedStatement;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -89,8 +92,25 @@ public class TidslinjeDAO {
 
            // EntityManager em = emf.createEntityManager();
            // EntityTransaction tx = em.getTransaction();
+        KeyHolder keyHolder = new GeneratedKeyHolder();
 
-            Integer id = 55;
+        String sql = "INSERT INTO \"schemaTest\".\"Tidslinje\" (user,timestampCreated,timestampChanged,start,end,text,like,dislike,isDeleted) VALUES(?,?,?,?,?,?,?,?,?)";
+
+        db.update(con -> {
+            PreparedStatement query = con.prepareStatement(sql, new String[]{"id"});
+            query.setString(1, tidslinje.getUser() );
+            query.setLong(   2, tidslinje.getTimestampCreated());
+            query.setLong(3, tidslinje.getTimestampChanged());
+            query.setInt(4, tidslinje.getStart());
+            query.setInt(5,tidslinje.getEnd());
+            query.setString(6,tidslinje.getText());
+            query.setBoolean(7,tidslinje.getLike());
+            query.setBoolean(8 ,tidslinje.getDislike());
+            query.setBoolean(9 ,tidslinje.getDeleted());
+            return query;
+        },keyHolder);
+
+            Integer id = keyHolder.getKey().intValue();
             tidslinje.setId(id);
             return  tidslinje;
     }
