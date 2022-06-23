@@ -26,27 +26,25 @@
             $( "#dislikes" ).val( "0");
             $("#addFeature").click((e) => {
                 timeLineModule.extractFeatureAndUpdate()
+                timeLineModule.getChanges()
             });
             $("#changeButton").click((e) => {
                 let res = timeLineModule.extractChangedTimeline()
                 timeLineModule.changeTimeLineById(res.id,res)
+                timeLineModule.getChanges()
             });
             $("#refreshComments").click((e) => {
                timeLineModule.getChanges()
             });
 
             $("#comments").click((e)=>{
-                console.log("Inside comments")
-                console.log(e.target.nodeName)
-                console.log(e.target.innerText)
+
                 //Event delegation to avoid memory leaks by adding and removing
                 // a lot of event listeners.
                 if(e.target && e.target.nodeName == "BUTTON") {
-                    console.log("Is a button")
+
                  if(e.target.innerText == "Change"){
                      let id = e.target.parentNode.parentNode.id;
-                     console.log("CHANGE" + id)
-
                      let timeline = timeLineModule.getTimeLineById(id)
                      $("#commentCommentChange").val(timeline.text)
                      $("#commentUserChange").val(timeline.user)
@@ -65,8 +63,8 @@
                  }
                  else if(e.target.innerText == "Remove"){
                      let id = e.target.parentNode.parentNode.id;
-                     console.log("REMOVE" + id)
                      timeLineModule.removeTimeLineById(id)
+                     timeLineModule.getChanges()
                  }
                 }
             });
