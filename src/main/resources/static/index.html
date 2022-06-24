@@ -37,7 +37,7 @@
                timeLineModule.getChanges()
             });
 
-            $("#comments").click((e)=>{
+            $("#comments").click(async (e)=>{
 
                 //Event delegation to avoid memory leaks by adding and removing
                 // a lot of event listeners.
@@ -63,7 +63,7 @@
                  }
                  else if(e.target.innerText == "Remove"){
                      let id = e.target.parentNode.parentNode.id;
-                     timeLineModule.removeTimeLineById(id)
+                     await timeLineModule.removeTimeLineById(id)
                      timeLineModule.getChanges()
                  }
                 }
