@@ -170,7 +170,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id,"timestampChanged":changeTime}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-
+            timestamp = changeTime
            // removeTimePLine(id);
         }).promise();
 
