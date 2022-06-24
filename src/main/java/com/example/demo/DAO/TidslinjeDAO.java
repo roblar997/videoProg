@@ -79,14 +79,12 @@ public class TidslinjeDAO {
         //EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
         //
-       String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
-       List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
-       Optional<Tidslinje> tidslinjeOpt = tidslinjer.stream().filter((x)->x.getId() == id).findFirst();
-       if(tidslinjeOpt.isPresent()){
-           tidslinjeOpt.get().setDeleted(true);
-           return "OK";
-       }
-       return "NOTFOUND";
+
+       String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET isdeleted=? WHERE id=?";
+       db.update(sql,true,id);
+
+       return "OK";
+
     }
     public Tidslinje addTidslinje(Tidslinje tidslinje){
 
