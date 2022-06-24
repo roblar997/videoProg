@@ -119,7 +119,7 @@ public class videoServlet extends HttpServlet {
             }
             catch (Exception ex){
                 isTypetimestampMethodWrapper = false;
-                out.println(ex.getMessage());
+                out.println("ERROR 1");
                 out.close();
                 return;
 
@@ -137,7 +137,7 @@ public class videoServlet extends HttpServlet {
                     }
                     catch (Exception ex){
 
-                        out.println(ex.getMessage());
+                        out.println("ERROR 2");
 
 
                     }
