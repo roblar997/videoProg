@@ -59,6 +59,25 @@ public class TidslinjeDAO {
        return "OK";
 
     }
+
+    @Transactional
+    public String reverseDelete(Integer id, Long timestampchanged){
+
+
+        String sql  =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
+        db.update(sql,false, timestampchanged,id);
+        return "OK";
+
+    }
+    @Transactional
+    public String eraseDeleted(){
+
+
+        String sql  =  "DELETE FROM \"schemaTest\".\"Tidslinje\" WHERE \"isdeleted\"=?";
+        db.update(sql,true);
+        return "OK";
+
+    }
     @Transactional
     public Integer addTidslinje(Tidslinje tidslinje){
 
