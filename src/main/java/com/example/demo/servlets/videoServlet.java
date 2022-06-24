@@ -150,7 +150,7 @@ public class videoServlet extends HttpServlet {
             }
 
             if(istidslinjeMethodIdWrapper){
-                out.println("CHANGE " + tidslinjeMethodIdWrapper.getId());
+                tidslinjeDAO.changeTidsline(tidslinjeMethodIdWrapper.getTimeline(),tidslinjeMethodIdWrapper.getId());
                 return;
             }
 
@@ -166,7 +166,7 @@ public class videoServlet extends HttpServlet {
 
             }
             if(isTypemethodIdWrapper){
-                out.println("REMOVE " + methodidwrapper.getId());
+                tidslinjeDAO.removeTidsline(methodidwrapper.getId());
                 return;
             }
 
