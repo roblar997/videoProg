@@ -95,8 +95,11 @@ public class TidslinjeDAO {
         //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged > ? ";
-        List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
+        //String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged > ? ";
+        //List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"  ";
+        List<Tidslinje> tidslinjer = db.query(sql,new BeanPropertyRowMapper(Tidslinje.class));
+
         return tidslinjer;
 
     }
