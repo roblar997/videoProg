@@ -43,9 +43,8 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
-        String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET user=?,  start=?, end=?, text=?, like=?, dislike=?, isdeleted=? WHERE id=?";
-        db.update(sql,tidslinje.getUser(),tidslinje.getStart(),tidslinje.getEnd(),tidslinje.getText(),tidslinje.getLike(),tidslinje.getDislike(),tidslinje.getDeleted(),id);
-
+        String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET user=?, timestampcreated=?, timestampchanged=?, start=?, end=?, text=?, like=?, dislike=?, isdeleted=? WHERE id=?";
+        db.update(sql,new Object[] {tidslinje.getUser(),tidslinje.getTimestampCreated(),tidslinje.getTimestampChanged(),tidslinje.getStart(),tidslinje.getEnd(),tidslinje.getText(),tidslinje.getLike(),tidslinje.getDislike(),tidslinje.getDeleted(),id});
         return "OK";
 
     }
