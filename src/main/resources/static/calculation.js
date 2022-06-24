@@ -155,7 +155,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            timeLineModule.getChanges()
+
         }).promise();
 
     }
@@ -168,7 +168,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id,"timestampChanged":changeTime}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            timeLineModule.getChanges()
+
         }).promise();
 
     }
@@ -181,7 +181,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-           timeLineModule.getChanges()
+
         }).promise();
 
     }
@@ -373,11 +373,12 @@ var timeLineModule = (function(){
         getInitState : async function (){
             await getInitPState().then();
         } ,
-        sendTimeLine : function (timeline){
-            sendTimePLine(timeline).then();
+        sendTimeLine : async function (timeline){
+            await sendTimePLine(timeline).then();
+            await timeLineModule.getChanges();
         } ,
-        getChanges : function (){
-            getPChanges().then();
+        getChanges : async function (){
+            await getPChanges().then();
         },
 
         extractFeatureAndUpdate: function(){
@@ -424,13 +425,14 @@ var timeLineModule = (function(){
         getTimeLineById : function(id){
             return getPTimeLineById(id)
         },
-        removeTimeLineById : function(id) {
-            removePTimeLineById(id).then()
-
+        removeTimeLineById : async function(id) {
+            await removePTimeLineById(id).then()
+            await timeLineModule.getChanges();
         },
 
-        changeTimeLineById : function(id,timeline){
-            changePTimeLineById(id,timeline).then()
+        changeTimeLineById : async function(id,timeline){
+            await changePTimeLineById(id,timeline).then()
+            await timeLineModule.getChanges();
         },
         initFeatureTree: function(nmbFeatures,size){
             initPFeatureTree(nmbFeatures,size)
