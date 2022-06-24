@@ -132,7 +132,7 @@ public class videoServlet extends HttpServlet {
                     Type typeInfo  = new TypeToken<List<Tidslinje>>() {}.getType();
                     try{
                        // List<tidslinjeCommandWrapper> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(timestampCopy).stream().map((x)-> { return WrapperService.assembletidslinjeCommandWrapper(x,timestampCopy);}).collect(Collectors.toList());
-                        List<Tidslinje> tidslinjene = tidslinjeDAO.getTidslinjer();
+                        List<Tidslinje> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(timestampCopy);
                         String json = gson.toJson(tidslinjene, typeInfo);
                         out.println(json);
 
