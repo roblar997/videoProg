@@ -20,9 +20,7 @@ public class WrapperService {
         return wrapper;
     }
     public static String decideCommand(Tidslinje tidslinje, Long timestamp){
-        if (tidslinje.getDeleted())
-            return "REMOVE";
-        else if(tidslinje.getTimestampCreated() > timestamp)
+       if(tidslinje.getTimestampCreated() > timestamp)
             return "ADD";
         else if(tidslinje.getTimestampChanged() > timestamp)
             return  "CHANGE";
@@ -32,6 +30,6 @@ public class WrapperService {
 
     public synchronized  static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(Tidslinje tidslinje, Long timestamp){
         //return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
-        return assembletidslinjeCommandWrapper("CHANGE",tidslinje);
+        return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
     }
 }
