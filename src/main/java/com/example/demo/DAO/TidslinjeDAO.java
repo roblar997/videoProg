@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.ejb.Stateless;
 import javax.persistence.*;
 import java.sql.PreparedStatement;
+import java.sql.Types;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -94,9 +95,9 @@ public class TidslinjeDAO {
         //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
-        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
-        return tidslinjer.stream().filter(x-> x.getTimestampChanged() > timestamp).collect(Collectors.toList());
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged > ? ";
+        List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
+        return tidslinjer;
 
     }
     public List<Tidslinje> getLatestChanged(Long timestamp){
