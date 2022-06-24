@@ -134,6 +134,7 @@ public class videoServlet extends HttpServlet {
                         String json = gson.toJson(tidslinjene, typeInfo);
                         out.println(json);
                         out.close();
+                        return;
                     }
                     catch (Exception ex){
 
@@ -143,7 +144,6 @@ public class videoServlet extends HttpServlet {
 
                     }
 
-                    return;
                 }
             }
 
