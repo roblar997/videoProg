@@ -61,7 +61,7 @@ public class TidslinjeDAO {
        return "OK";
 
     }
-    public Tidslinje addTidslinje(Tidslinje tidslinje){
+    public Integer addTidslinje(Tidslinje tidslinje){
 
            // EntityManager em = emf.createEntityManager();
            // EntityTransaction tx = em.getTransaction();
@@ -83,9 +83,9 @@ public class TidslinjeDAO {
             return query;
         },keyHolder);
 
-            Integer id = keyHolder.getKey().intValue();
-            tidslinje.setId(id);
-            return  tidslinje;
+
+        Integer id = keyHolder.getKey().intValue();
+        return id;
     }
 
     public List<Tidslinje> getLatestChangedOrAdded(Long timestamp){
