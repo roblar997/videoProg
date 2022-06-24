@@ -34,7 +34,7 @@ public class TidslinjeDAO {
     public List<Tidslinje> getTidslinjer(){
        // EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE isdeleted=false";
         List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
     }
