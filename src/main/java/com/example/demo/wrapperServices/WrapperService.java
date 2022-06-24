@@ -10,16 +10,16 @@ import com.example.demo.wrapper.tidslinjeCommandWrapper;
 import java.util.List;
 
 public class WrapperService {
-    public synchronized static InitFenwickTidslinjeFeatureWrapper assembleInitFenwickTidslinjeWrapper(InitFenwick initFenwick, List<Tidslinje> tidslinjer, List<Feature> featureList){
+    public static InitFenwickTidslinjeFeatureWrapper assembleInitFenwickTidslinjeWrapper(InitFenwick initFenwick, List<Tidslinje> tidslinjer, List<Feature> featureList){
         InitFenwickTidslinjeFeatureWrapper wrapper = new InitFenwickTidslinjeFeatureWrapper(initFenwick,tidslinjer,featureList);
         return wrapper;
     }
 
-    public synchronized static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(String command, Tidslinje tidslinje){
+    public static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(String command, Tidslinje tidslinje){
         tidslinjeCommandWrapper wrapper = new tidslinjeCommandWrapper(command,tidslinje);
         return wrapper;
     }
-    public synchronized static String decideCommand(Tidslinje tidslinje, Long timestamp){
+    public static String decideCommand(Tidslinje tidslinje, Long timestamp){
         if (tidslinje.getDeleted())
             return "REMOVE";
         else if(tidslinje.getTimestampCreated() > timestamp)
@@ -31,6 +31,7 @@ public class WrapperService {
     }
 
     public synchronized  static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(Tidslinje tidslinje, Long timestamp){
-        return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
+        //return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
+        return assembletidslinjeCommandWrapper("CHANGE",tidslinje);
     }
 }
