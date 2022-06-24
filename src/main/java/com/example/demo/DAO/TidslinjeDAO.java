@@ -58,7 +58,13 @@ public class TidslinjeDAO {
         //
 
        String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
-       db.update(sql,true, timestampchanged,id);
+        db.update(con -> {
+            PreparedStatement query = con.prepareStatement(sql);
+            query.setBoolean(1, true);
+            query.setObject(2, timestampchanged, java.sql.Types.BIGINT);
+            query.setInt(3,id);
+            return query;
+        });
 
        return "OK";
 
