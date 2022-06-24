@@ -57,7 +57,7 @@ public class TidslinjeDAO {
        // EntityTransaction tx = em.getTransaction();
         //
         String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"  WHERE \"id\"=?";
-        Tidslinje tidslinje = db.queryForObject(sql, Tidslinje.class);
+        Tidslinje tidslinje = db.queryForObject(sql,new Integer[]{id},Tidslinje.class);
         tidslinje.setDeleted(true);
         tidslinje.setTimestampChanged(timestampchanged);
         String sql2 =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
