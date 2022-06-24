@@ -155,9 +155,9 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
+            timeLineModule.getChanges()
+        }).promise();
 
-        })
-        await timeLineModule.getChanges().promise();
     }
 
     async function removePTimeLineById(id) {
@@ -168,9 +168,9 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id,"timestampChanged":changeTime}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
+            timeLineModule.getChanges()
+        }).promise();
 
-        })
-        await timeLineModule.getChanges().promise();
     }
 
     async function changePTimeLineById(id,timeline) {
@@ -181,8 +181,9 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-        })
-        await timeLineModule.getChanges().promise();
+           timeLineModule.getChanges()
+        }).promise();
+
     }
     function removeTimePLine(id){
         let index = timeLines.findIndex((x)=>{return x.id == id})
