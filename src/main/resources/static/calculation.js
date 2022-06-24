@@ -441,7 +441,7 @@ var timeLineModule = (function(){
         changeTimeLineById : async function(id,timeline){
             await changePTimeLineById(id,timeline).then(function (res) {
                     timeLineModule.getChanges();
-            }).catch(function (err) {})
+            }).catch(function (err) { timeLineModule.getChanges()})
 
         },
         initFeatureTree: function(nmbFeatures,size){
