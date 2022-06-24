@@ -157,7 +157,7 @@ var timeLineModule = (function(){
         }).done((res) => {
             let id = res;
             timeline.id = id;
-            addPTimeLine(timeline);
+            //addPTimeLine(timeline);
         }).promise();
 
     }
