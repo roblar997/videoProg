@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -30,7 +31,7 @@ public class TidslinjeDAO {
     private EntityManagerFactory emf;
 
 
-
+    @Transactional
     public List<Tidslinje> getTidslinjer(){
        // EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
@@ -38,7 +39,7 @@ public class TidslinjeDAO {
         List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
     }
-
+    @Transactional
     public String changeTidsline(Tidslinje tidslinje, Integer id){
 
        // EntityManager em = emf.createEntityManager();
@@ -49,6 +50,7 @@ public class TidslinjeDAO {
         return "OK";
 
     }
+    @Transactional
     public String removeTidsline(Integer id, Long timestampchanged){
 
         //EntityManager em = emf.createEntityManager();
@@ -61,6 +63,7 @@ public class TidslinjeDAO {
        return "OK";
 
     }
+    @Transactional
     public Integer addTidslinje(Tidslinje tidslinje){
 
            // EntityManager em = emf.createEntityManager();
@@ -87,7 +90,7 @@ public class TidslinjeDAO {
         Integer id = keyHolder.getKey().intValue();
         return id;
     }
-
+    @Transactional
     public List<Tidslinje> getLatestChangedOrAdded(Long timestamp){
 
         //EntityManager em = emf.createEntityManager();
@@ -99,6 +102,7 @@ public class TidslinjeDAO {
         return tidslinjer;
 
     }
+    @Transactional
     public List<Tidslinje> getLatestChanged(Long timestamp){
 
        // EntityManager em = emf.createEntityManager();
@@ -107,7 +111,7 @@ public class TidslinjeDAO {
         List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
     }
-
+    @Transactional
     public List<Tidslinje> getLatestAdded(Long timestamp){
 
        // EntityManager em = emf.createEntityManager();
