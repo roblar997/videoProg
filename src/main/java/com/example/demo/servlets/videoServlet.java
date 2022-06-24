@@ -167,7 +167,7 @@ public class videoServlet extends HttpServlet {
                     out.println("OK");
                 }
                 catch (Exception ex){
-                    out.println("ERROR--" + ex.getMessage());
+                    out.println("ERROR--" + tidslinjeMethodIdWrapper.getTimeline() + " " + tidslinjeMethodIdWrapper.getId());
                 }
                 out.close();
                 return;
