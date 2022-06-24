@@ -39,7 +39,6 @@ public class videoServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override
@@ -188,6 +187,7 @@ public class videoServlet extends HttpServlet {
             if(isTypemethodIdWrapper){
                 try{
                     tidslinjeDAO.removeTidsline(methodIdChangeDateWrapper.getId(),methodIdChangeDateWrapper.getTimestampChanged());
+                    out.println("OK");
                 }
 
                 catch (Exception ex){
