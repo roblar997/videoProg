@@ -145,6 +145,6 @@ public class Tidslinje  {
     }
 
     public void setIsdeleted(Boolean isdeleted) {
-        isdeleted = isdeleted;
+        this.isdeleted = isdeleted;
     }
 }
