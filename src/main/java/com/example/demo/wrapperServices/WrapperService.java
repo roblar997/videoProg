@@ -20,7 +20,9 @@ public class WrapperService {
         return wrapper;
     }
     public static String decideCommand(Tidslinje tidslinje, Long timestamp){
-       if(tidslinje.getTimestampCreated() > timestamp)
+        if (tidslinje.getDeleted() == null || tidslinje.getDeleted())
+            return "REMOVE";
+        else if(tidslinje.getTimestampCreated() > timestamp)
             return "ADD";
         else if(tidslinje.getTimestampChanged() > timestamp)
             return  "CHANGE";
