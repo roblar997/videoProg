@@ -162,7 +162,14 @@ public class videoServlet extends HttpServlet {
             }
 
             if(istidslinjeMethodIdWrapper){
-                tidslinjeDAO.changeTidsline(tidslinjeMethodIdWrapper.getTimeline(),tidslinjeMethodIdWrapper.getId());
+                try {
+                    tidslinjeDAO.changeTidsline(tidslinjeMethodIdWrapper.getTimeline(),tidslinjeMethodIdWrapper.getId());
+                    out.println("OK");
+                }
+                catch (Exception ex){
+                    out.println("ERROR--" + ex.getMessage());
+                }
+                out.close();
                 return;
             }
 
