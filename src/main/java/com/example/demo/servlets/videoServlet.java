@@ -133,16 +133,15 @@ public class videoServlet extends HttpServlet {
                         List<tidslinjeCommandWrapper> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(wrapptimestamp.getTimestamp()).stream().map((x)-> { return WrapperService.assembletidslinjeCommandWrapper(x,timestampCopy);}).collect(Collectors.toList());
                         String json = gson.toJson(tidslinjene, typeInfo);
                         out.println(json);
-                        out.close();
-                        return;
+
                     }
                     catch (Exception ex){
 
                         out.println(ex.getMessage());
-                        out.close();
-                        return;
+
 
                     }
+
 
                 }
             }
