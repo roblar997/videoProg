@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 
@@ -174,10 +173,10 @@ public class videoServlet extends HttpServlet {
             }
 
             Boolean isTypemethodIdWrapper = true;
-            methodIdWrapper methodidwrapper = null;
+            methodIdChangeDateWrapper methodIdChangeDateWrapper = null;
             try{
 
-                methodidwrapper = gson.fromJson(string.toString(),methodIdWrapper.class);
+                methodIdChangeDateWrapper = gson.fromJson(string.toString(), methodIdChangeDateWrapper.class);
 
             }
             catch (Exception ex){
@@ -185,7 +184,7 @@ public class videoServlet extends HttpServlet {
 
             }
             if(isTypemethodIdWrapper){
-                tidslinjeDAO.removeTidsline(methodidwrapper.getId());
+                tidslinjeDAO.removeTidsline(methodIdChangeDateWrapper.getId(),methodIdChangeDateWrapper.getTimestampChanged());
                 return;
             }
 

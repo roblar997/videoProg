@@ -163,13 +163,14 @@ var timeLineModule = (function(){
     }
 
     async function removePTimeLineById(id) {
-//
+        let changeTime = new Date().valueOf()
+
         await $.post({
             url: '/videoServlet',
-            data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id}),
+            data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id,"timestampChanged":changeTime}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-
+            timestamp = changeTime;
             removeTimePLine(id);
         }).promise();
 

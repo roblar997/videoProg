@@ -49,14 +49,14 @@ public class TidslinjeDAO {
         return "OK";
 
     }
-    public String removeTidsline(Integer id){
+    public String removeTidsline(Integer id, Long timestampchanged){
 
         //EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
         //
 
-       String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=? WHERE \"id\"=?";
-       db.update(sql,true,id);
+       String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
+       db.update(sql,true,timestampchanged,id);
 
        return "OK";
 
