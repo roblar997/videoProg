@@ -18,11 +18,11 @@ public class Tidslinje  {
     private Integer start;
     private Integer end;
     private String text;
-    private Boolean like;
-    private Boolean dislike;
-    private Boolean isDeleted;
+    private boolean like;
+    private boolean dislike;
+    private boolean isdeleted;
 
-    public Tidslinje(Integer id, String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isDeleted) {
+    public Tidslinje(Integer id, String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isdeleted) {
         this.id = id;
         this.user = user;
         this.timestampCreated = timestampCreated;
@@ -32,7 +32,7 @@ public class Tidslinje  {
         this.text = text;
         this.like = like;
         this.dislike = dislike;
-        this.isDeleted = isDeleted;
+        this.isdeleted = isdeleted;
     }
 
     public Tidslinje() {
@@ -51,7 +51,7 @@ public class Tidslinje  {
                 ", text='" + text + '\'' +
                 ", like=" + like +
                 ", dislike=" + dislike +
-                ", isDeleted=" + isDeleted +
+                ", isdeleted=" + isdeleted +
                 '}';
     }
 
@@ -60,12 +60,12 @@ public class Tidslinje  {
         if (this == o) return true;
         if (!(o instanceof Tidslinje)) return false;
         Tidslinje tidslinje = (Tidslinje) o;
-        return Objects.equals(id, tidslinje.id) && Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike) && Objects.equals(isDeleted, tidslinje.isDeleted);
+        return Objects.equals(id, tidslinje.id) && Objects.equals(user, tidslinje.user) && Objects.equals(timestampCreated, tidslinje.timestampCreated) && Objects.equals(timestampChanged, tidslinje.timestampChanged) && Objects.equals(start, tidslinje.start) && Objects.equals(end, tidslinje.end) && Objects.equals(text, tidslinje.text) && Objects.equals(like, tidslinje.like) && Objects.equals(dislike, tidslinje.dislike) && Objects.equals(isdeleted, tidslinje.isdeleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, timestampCreated, timestampChanged, start, end, text, like, dislike, isDeleted);
+        return Objects.hash(id, user, timestampCreated, timestampChanged, start, end, text, like, dislike, isdeleted);
     }
 
     public Integer getId() {
@@ -141,10 +141,10 @@ public class Tidslinje  {
     }
 
     public Boolean getDeleted() {
-        return isDeleted;
+        return isdeleted;
     }
 
     public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
+        isdeleted = deleted;
     }
 }

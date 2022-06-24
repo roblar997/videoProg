@@ -242,7 +242,7 @@ var timeLineModule = (function(){
                 html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
                 html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
                 html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
-                html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
+                html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isdeleted + '</p>';
                 html += '<button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-warning col-1 m-1 p-1">Change</button>';
                 html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
                 html += '</div>'
@@ -341,7 +341,7 @@ var timeLineModule = (function(){
             html += '<p>' +  "<strong> text</strong>: " + obj[key].text + '</p>';
             html += '<p>' +  " <strong>like</strong>: " + obj[key].like + '</p>';
             html += '<p>' +  " <strong>dislike</strong>: " + obj[key].dislike + '</p>';
-            html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isDeleted + '</p>';
+            html += '<p>' +  " <strong>deleted</strong>: " + obj[key].isdeleted + '</p>';
             html += '<button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-warning col-1 m-1 p-1">Change</button>';
             html += '<button type="button" class="btn btn-danger col-1 m-1 p-1" >Remove</button>';
             html += '</div>'
@@ -410,7 +410,7 @@ var timeLineModule = (function(){
                 text:  $("#commentComment").val().trim(),
                 like: $("#likeYes").is(':checked'),
                 dislike: $("#dislikeYes").is(':checked'),
-                isDeleted: false
+                isdeleted: false
 
             }
 
