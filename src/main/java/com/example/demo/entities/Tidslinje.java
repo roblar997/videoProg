@@ -18,9 +18,9 @@ public class Tidslinje  {
     private Integer start;
     private Integer end;
     private String text;
-    private boolean like;
-    private boolean dislike;
-    private boolean isdeleted;
+    private Boolean like;
+    private Boolean dislike;
+    private Boolean isdeleted;
 
     public Tidslinje(Integer id, String user, Long timestampCreated, Long timestampChanged, Integer start, Integer end, String text, Boolean like, Boolean dislike, Boolean isdeleted) {
         this.id = id;
