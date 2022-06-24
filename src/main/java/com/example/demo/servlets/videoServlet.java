@@ -134,6 +134,8 @@ public class videoServlet extends HttpServlet {
                         //List<Tidslinje> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(timestampCopy);
                         String json = gson.toJson(tidslinjene, typeInfo);
                         out.println(json);
+                        out.close();
+                        return;
 
                     }
                     catch (Exception ex){
@@ -163,6 +165,7 @@ public class videoServlet extends HttpServlet {
             if(istidslinjeMethodIdWrapper){
                 try {
                     tidslinjeDAO.changeTidsline(tidslinjeMethodIdWrapper.getTimeline(),tidslinjeMethodIdWrapper.getId());
+
                 }
                 catch (Exception ex){
                     out.println("ERROR--" + tidslinjeMethodIdWrapper.getTimeline() + " " + tidslinjeMethodIdWrapper.getId());
