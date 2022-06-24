@@ -127,10 +127,12 @@ public class videoServlet extends HttpServlet {
             if(isTypetimestampMethodWrapper){
                 String remoteMethod = wrapptimestamp.getRemoteMethod();
                 if(remoteMethod.equals("getChanges")){
-                    Type typeInfo = new TypeToken<List<tidslinjeCommandWrapper>>() {}.getType();
-                    final Long timestampCopy = wrapptimestamp.getTimestamp();
+                    //Type typeInfo = new TypeToken<List<tidslinjeCommandWrapper>>() {}.getType();
+                    //final Long timestampCopy = wrapptimestamp.getTimestamp();
+                    Type typeInfo  = new TypeToken<List<Tidslinje>>() {}.getType();
                     try{
-                        List<tidslinjeCommandWrapper> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(timestampCopy).stream().map((x)-> { return WrapperService.assembletidslinjeCommandWrapper(x,timestampCopy);}).collect(Collectors.toList());
+                       // List<tidslinjeCommandWrapper> tidslinjene = tidslinjeDAO.getLatestChangedOrAdded(timestampCopy).stream().map((x)-> { return WrapperService.assembletidslinjeCommandWrapper(x,timestampCopy);}).collect(Collectors.toList());
+                        List<Tidslinje> tidslinjene = tidslinjeDAO.getTidslinjer();
                         String json = gson.toJson(tidslinjene, typeInfo);
                         out.println(json);
 

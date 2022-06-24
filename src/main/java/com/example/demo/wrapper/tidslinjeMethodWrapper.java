@@ -22,6 +22,11 @@ public class tidslinjeMethodWrapper {
     public tidslinjeMethodWrapper() {
     }
 
+    public tidslinjeMethodWrapper(String remoteMethod, Tidslinje timeline) {
+        this.remoteMethod = remoteMethod;
+        this.timeline = timeline;
+    }
+
     public Tidslinje getTimeline() {
         return timeline;
     }
