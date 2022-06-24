@@ -371,14 +371,20 @@ var timeLineModule = (function(){
             getPTimeLine(commentId)
         } ,
         getInitState : async function (){
-            await getInitPState().then();
+            await getInitPState().then(function (res) {
+
+            }).catch(function (err) {})
         } ,
         sendTimeLine : async function (timeline){
-            await sendTimePLine(timeline).then();
+            await sendTimePLine(timeline).then(function (res) {
+
+            }).catch(function (err) {})
 
         } ,
         getChanges : async function (){
-            await getPChanges().then();
+            await getPChanges().then(function (res) {
+
+            }).catch(function (err) {})
         },
 
         extractFeatureAndUpdate: function(){
@@ -426,12 +432,16 @@ var timeLineModule = (function(){
             return getPTimeLineById(id)
         },
         removeTimeLineById : async function(id) {
-            await removePTimeLineById(id).then()
+            await removePTimeLineById(id).then(function (res) {
+
+            }).catch(function (err) {})
 
         },
 
         changeTimeLineById : async function(id,timeline){
-            await changePTimeLineById(id,timeline).then()
+            await changePTimeLineById(id,timeline).then(function (res) {
+
+            }).catch(function (err) {})
 
         },
         initFeatureTree: function(nmbFeatures,size){
