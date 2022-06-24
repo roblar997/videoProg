@@ -434,7 +434,7 @@ var timeLineModule = (function(){
         removeTimeLineById : async function(id) {
             await removePTimeLineById(id).then(function (res) {
                 timeLineModule.getChanges();
-            }).catch(function (err) {})
+            }).catch(function (err) { timeLineModule.getChanges()})
 
         },
 
