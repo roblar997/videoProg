@@ -171,7 +171,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-            removeTimePLine(id);
+           // removeTimePLine(id);
         }).promise();
 
     }
@@ -184,7 +184,7 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
 
-            changePLine(id,timeline);
+            //changePLine(id,timeline);
         }).promise();
 
     }
