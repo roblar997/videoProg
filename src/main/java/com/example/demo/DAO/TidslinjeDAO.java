@@ -56,14 +56,23 @@ public class TidslinjeDAO {
         //EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
         //
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"  WHERE \"id\"=?";
-        Tidslinje tidslinje = db.queryForObject(sql,new Integer[]{id},Tidslinje.class);
-        tidslinje.setDeleted(true);
-        tidslinje.setTimestampChanged(timestampchanged);
-        String sql2 =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
-       db.update(sql2,tidslinje.getDeleted(), tidslinje.getTimestampChanged(),tidslinje.getId());
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"id\"=?";
+        List<Tidslinje> tidslinjer = db.query(sql,new Integer[]{id}, new BeanPropertyRowMapper(Tidslinje.class));
+        Optional<Tidslinje> tidslinjeOPT = tidslinjer.stream().findFirst();
 
-       return "OK";
+        if(tidslinjeOPT.isPresent()){
+            Tidslinje tidslinje = tidslinjeOPT.get();
+            tidslinje.setDeleted(true);
+            tidslinje.setTimestampChanged(timestampchanged);
+            String sql2 =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
+            db.update(sql2,tidslinje.getDeleted(), tidslinje.getTimestampChanged(),tidslinje.getId());
+            return "OK";
+
+        }
+
+
+
+       return "ERROR";
 
     }
     @Transactional
