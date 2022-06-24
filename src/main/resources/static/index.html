@@ -31,7 +31,7 @@
             $("#changeButton").click((e) => {
                 let res = timeLineModule.extractChangedTimeline()
                 timeLineModule.changeTimeLineById(res.id,res)
-                timeLineModule.getChanges()
+
             });
             $("#refreshComments").click((e) => {
                timeLineModule.getChanges()
@@ -64,7 +64,7 @@
                  else if(e.target.innerText == "Remove"){
                      let id = e.target.parentNode.parentNode.id;
                      timeLineModule.removeTimeLineById(id)
-                     timeLineModule.getChanges()
+
                  }
                 }
             });
