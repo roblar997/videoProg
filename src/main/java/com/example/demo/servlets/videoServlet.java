@@ -163,7 +163,6 @@ public class videoServlet extends HttpServlet {
             if(istidslinjeMethodIdWrapper){
                 try {
                     tidslinjeDAO.changeTidsline(tidslinjeMethodIdWrapper.getTimeline(),tidslinjeMethodIdWrapper.getId());
-                    out.println("OK");
                 }
                 catch (Exception ex){
                     out.println("ERROR--" + tidslinjeMethodIdWrapper.getTimeline() + " " + tidslinjeMethodIdWrapper.getId());
