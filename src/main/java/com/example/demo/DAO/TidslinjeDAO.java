@@ -53,26 +53,10 @@ public class TidslinjeDAO {
     @Transactional
     public String removeTidsline(Integer id, Long timestampchanged){
 
-        //EntityManager em = emf.createEntityManager();
-       // EntityTransaction tx = em.getTransaction();
-        //
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"id\"=?";
-        List<Tidslinje> tidslinjer = db.query(sql,new Integer[]{id}, new BeanPropertyRowMapper(Tidslinje.class));
-        Optional<Tidslinje> tidslinjeOPT = tidslinjer.stream().findFirst();
 
-        if(tidslinjeOPT.isPresent()){
-            Tidslinje tidslinje = tidslinjeOPT.get();
-            tidslinje.setIsdeleted(true);
-            tidslinje.setTimestampChanged(timestampchanged);
-            String sql2 =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
-            db.update(sql2,tidslinje.getIsdeleted(), tidslinje.getTimestampChanged(),tidslinje.getId());
-            return "OK";
-
-        }
-
-
-
-       return "ERROR";
+       String sql  =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
+       db.update(sql,true, timestampchanged,id);
+       return "OK";
 
     }
     @Transactional
