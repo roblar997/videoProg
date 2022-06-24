@@ -156,7 +156,8 @@ var timeLineModule = (function(){
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
             let id = res;
-            //addPTimeLine(res);
+            timeline.id = id;
+            addPTimeLine(timeline);
         }).promise();
 
     }
