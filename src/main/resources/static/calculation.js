@@ -431,10 +431,10 @@ var timeLineModule = (function(){
         getTimeLineById : function(id){
             return getPTimeLineById(id)
         },
-        removeTimeLineById : async function(id) {
-            await removePTimeLineById(id).then(function (res) {
-                timeLineModule.getChanges();
-            }).catch(function (err) { timeLineModule.getChanges()})
+        removeTimeLineById :  function(id) {
+             removePTimeLineById(id).then(function (res) {
+                timeLineModule.getChanges().then(r => {});
+            }).catch(function (err) { timeLineModule.getChanges().then(r => {});})
 
         },
 
