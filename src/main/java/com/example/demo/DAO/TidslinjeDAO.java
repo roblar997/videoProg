@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 @Stateless
 public class TidslinjeDAO {
 
-    //private List<Tidslinje> tidslinjer;
 
     @Autowired
     private JdbcTemplate db;
