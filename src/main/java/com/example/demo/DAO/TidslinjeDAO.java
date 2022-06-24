@@ -34,7 +34,7 @@ public class TidslinjeDAO {
     public List<Tidslinje> getTidslinjer(){
        // EntityManager em = emf.createEntityManager();
        // EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE isdeleted IS False";
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"isdeleted\" IS False";
         List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
     }
@@ -55,7 +55,7 @@ public class TidslinjeDAO {
        // EntityTransaction tx = em.getTransaction();
         //
 
-       String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET isdeleted=? WHERE id=?";
+       String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=? WHERE \"id\"=?";
        db.update(sql,true,id);
 
        return "OK";
@@ -94,7 +94,7 @@ public class TidslinjeDAO {
         //EntityTransaction tx = em.getTransaction();
 
         //Get newest changes
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged >= ? ";
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"timestampchanged\" >= ? ";
         List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
 
@@ -103,7 +103,7 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged <> timestampcreated AND timestampchanged > ? ";
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"timestampchanged\" <> \"timestampcreated\" AND \"timestampchanged\" > ? ";
         List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
     }
@@ -112,7 +112,7 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
       //  EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampcreated > ? ";
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE \"timestampcreated\" > ? ";
         List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
         return tidslinjer;
 
