@@ -433,17 +433,17 @@ var timeLineModule = (function(){
         },
         removeTimeLineById :  function(id) {
              removePTimeLineById(id).then(function (res) {
-                 timeLineModule.getChanges();
+                 timeLineModule.getChanges()
 
             }).catch(function (err) {
-
+                 timeLineModule.getChanges()
              });
         },
 
         changeTimeLineById : async function(id,timeline){
             await changePTimeLineById(id,timeline).then(function (res) {
                     timeLineModule.getChanges();
-            }).catch(function (err) { })
+            }).catch(function (err) { timeLineModule.getChanges()})
 
         },
         initFeatureTree: function(nmbFeatures,size){
