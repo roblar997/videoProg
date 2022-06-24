@@ -433,9 +433,12 @@ var timeLineModule = (function(){
         },
         removeTimeLineById :  function(id) {
              removePTimeLineById(id).then(function (res) {
-                timeLineModule.getChanges().then(r => {});
-            }).catch(function (err) { timeLineModule.getChanges().then(r => {});})
+                 setTimeout(()=>timeLineModule.getChanges().then(r => {}),1000)
 
+            }).catch(function (err) {
+                 setTimeout(() => timeLineModule.getChanges().then(r => {
+                 }), 1000)
+             });
         },
 
         changeTimeLineById : async function(id,timeline){
