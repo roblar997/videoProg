@@ -140,11 +140,11 @@ public class Tidslinje  {
         this.dislike = dislike;
     }
 
-    public Boolean getDeleted() {
+    public Boolean getIsdeleted() {
         return isdeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
-        isdeleted = deleted;
+    public void setIsdeleted(Boolean isdeleted) {
+        isdeleted = isdeleted;
     }
 }
