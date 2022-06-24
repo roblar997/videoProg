@@ -30,7 +30,7 @@ public class WrapperService {
             return  "NOTHING";
     }
 
-    public synchronized  static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(Tidslinje tidslinje, Long timestamp){
+    public   static tidslinjeCommandWrapper assembletidslinjeCommandWrapper(Tidslinje tidslinje, Long timestamp){
         //return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
         return assembletidslinjeCommandWrapper(decideCommand(tidslinje,timestamp),tidslinje);
     }
