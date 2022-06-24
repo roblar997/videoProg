@@ -58,7 +58,7 @@ public class TidslinjeDAO {
         //
 
        String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
-       db.update(sql,1, timestampchanged,id);
+       db.update(sql,true, timestampchanged,id);
 
        return "OK";
 
