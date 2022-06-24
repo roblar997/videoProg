@@ -45,7 +45,7 @@ public class TidslinjeDAO {
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
         String sql =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"user\"=?, \"timestampcreated\"=?, \"timestampchanged\"=?, \"start\"=?, \"end\"=?, \"text\"=?, \"like\"=?, \"dislike\"=?, \"isdeleted\"=? WHERE \"id\"=?";
-        db.update(sql,tidslinje.getUser(),tidslinje.getTimestampCreated(),tidslinje.getTimestampChanged(),tidslinje.getStart(),tidslinje.getEnd(),tidslinje.getText(),tidslinje.getLike(),tidslinje.getDislike(),tidslinje.getDeleted(),id);
+        db.update(sql,tidslinje.getUser(),tidslinje.getTimestampCreated(),tidslinje.getTimestampChanged(),tidslinje.getStart(),tidslinje.getEnd(),tidslinje.getText(),tidslinje.getLike(),tidslinje.getDislike(),tidslinje.getIsdeleted(),id);
 
         return "OK";
 
@@ -62,10 +62,10 @@ public class TidslinjeDAO {
 
         if(tidslinjeOPT.isPresent()){
             Tidslinje tidslinje = tidslinjeOPT.get();
-            tidslinje.setDeleted(true);
+            tidslinje.setIsdeleted(true);
             tidslinje.setTimestampChanged(timestampchanged);
             String sql2 =  "UPDATE \"schemaTest\".\"Tidslinje\" SET \"isdeleted\"=?, \"timestampchanged\"=? WHERE \"id\"=?";
-            db.update(sql2,tidslinje.getDeleted(), tidslinje.getTimestampChanged(),tidslinje.getId());
+            db.update(sql2,tidslinje.getIsdeleted(), tidslinje.getTimestampChanged(),tidslinje.getId());
             return "OK";
 
         }
@@ -94,7 +94,7 @@ public class TidslinjeDAO {
             query.setString(6,tidslinje.getText());
             query.setBoolean(7,tidslinje.getLike());
             query.setBoolean(8 ,tidslinje.getDislike());
-            query.setBoolean(9 ,tidslinje.getDeleted());
+            query.setBoolean(9 ,tidslinje.getIsdeleted());
             return query;
         },keyHolder);
 
