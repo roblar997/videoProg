@@ -155,7 +155,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "addTimeLine", "timeline": timeline}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            timeLineModule.getChanges()
+            async () => await getPChanges();
         }).promise();
 
     }
@@ -168,7 +168,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "removeTimeline", "id": id,"timestampChanged":changeTime}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            timeLineModule.getChanges()
+            async () => await getPChanges();
         }).promise();
 
     }
@@ -180,7 +180,7 @@ var timeLineModule = (function(){
             data: JSON.stringify({ "remoteMethod": "changeTimeline","timeline":timeline, "id": id}),
             contentType: "application/json; charset=utf-8"
         }).done((res) => {
-            timeLineModule.getChanges()
+            async () => await getPChanges();
         }).promise();
 
     }
