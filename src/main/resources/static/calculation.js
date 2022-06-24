@@ -377,7 +377,7 @@ var timeLineModule = (function(){
         } ,
         sendTimeLine : async function (timeline){
             await sendTimePLine(timeline).then(function (res) {
-
+                timeLineModule.getChanges()
             }).catch(function (err) {})
 
         } ,
