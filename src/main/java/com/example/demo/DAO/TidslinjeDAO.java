@@ -104,21 +104,18 @@ public class TidslinjeDAO {
 
        // EntityManager em = emf.createEntityManager();
         //EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
-        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
-        //Get newest changes
-        return tidslinjer.stream().filter(x-> x.getTimestampCreated() != x.getTimestampChanged() && x.getTimestampChanged() > timestamp).collect(Collectors.toList());
-
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampchanged <> timestampcreated AND timestampchanged > ? ";
+        List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
+        return tidslinjer;
     }
 
     public List<Tidslinje> getLatestAdded(Long timestamp){
 
        // EntityManager em = emf.createEntityManager();
       //  EntityTransaction tx = em.getTransaction();
-        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\"";
-        List<Tidslinje> tidslinjer = db.query(sql, new BeanPropertyRowMapper(Tidslinje.class));
-        //Get newest changes
-        return tidslinjer.stream().filter(x-> x.getTimestampCreated() > timestamp).collect(Collectors.toList());
+        String sql =  "SELECT * FROM \"schemaTest\".\"Tidslinje\" WHERE timestampcreated > ? ";
+        List<Tidslinje> tidslinjer = db.query(sql,new Long[]{timestamp}, new BeanPropertyRowMapper(Tidslinje.class));
+        return tidslinjer;
 
     }
 
