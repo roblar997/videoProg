@@ -28,16 +28,16 @@
                 timeLineModule.extractFeatureAndUpdate()
 
             });
-            $("#changeButton").click((e) => {
+            $("#changeButton").click(async (e) => {
                 let res = timeLineModule.extractChangedTimeline()
-                timeLineModule.changeTimeLineById(res.id,res)
-
+                await timeLineModule.changeTimeLineById(res.id,res)
+                await timeLineModule.getChanges()
             });
             $("#refreshComments").click((e) => {
                timeLineModule.getChanges()
             });
 
-            $("#comments").click((e)=>{
+            $("#comments").click(async (e)=>{
 
                 //Event delegation to avoid memory leaks by adding and removing
                 // a lot of event listeners.
@@ -63,8 +63,8 @@
                  }
                  else if(e.target.innerText == "Remove"){
                      let id = e.target.parentNode.parentNode.id;
-                     timeLineModule.removeTimeLineById(id)
-
+                     await timeLineModule.removeTimeLineById(id)
+                     await timeLineModule.getChanges()
                  }
                 }
             });
@@ -99,7 +99,7 @@
                 $("#addTimeline").click((e) => {
                     let timelineToAdd = timeLineModule.extractTidslinje();
                     timeLineModule.sendTimeLine(timelineToAdd);
-
+                    timeLineModule.getChanges()
 
                 });
                 $( "#pause" ).click(function(){

@@ -375,7 +375,7 @@ var timeLineModule = (function(){
         } ,
         sendTimeLine : async function (timeline){
             await sendTimePLine(timeline).then();
-            await timeLineModule.getChanges();
+
         } ,
         getChanges : async function (){
             await getPChanges().then();
@@ -427,12 +427,12 @@ var timeLineModule = (function(){
         },
         removeTimeLineById : async function(id) {
             await removePTimeLineById(id).then()
-            await timeLineModule.getChanges();
+
         },
 
         changeTimeLineById : async function(id,timeline){
             await changePTimeLineById(id,timeline).then()
-            await timeLineModule.getChanges();
+
         },
         initFeatureTree: function(nmbFeatures,size){
             initPFeatureTree(nmbFeatures,size)
