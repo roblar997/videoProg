@@ -6,12 +6,14 @@ import javax.persistence.Table;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.Objects;
-//@Entity
-//@Table(name="tidslinje", schema = "schemaTest")
-public class Tidslinje  {
 
-   // @Id
+@Entity
+@Table(name="tidslinje", schema = "schemaTest")
+public class Tidslinje implements Serializable {
+
+    @Id
     private Integer id;
+
     private String user;
     private Long timestampCreated;
     private Long timestampChanged;
